@@ -23,7 +23,7 @@ cd ..
     }
     stage('Build binary - armhf') {
       steps {
-        node(label: 'xenial-arm64') {
+        node(label: 'master') {
           unstash 'source'
           sh '''export architecture="armhf"
 export distribution="xenial"
