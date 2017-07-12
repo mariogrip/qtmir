@@ -25,7 +25,7 @@ cd ..
       steps {
         node(label: 'master') {
           unstash 'source'
-          sh '''export architecture="armhf"
+          sh '''export architecture="amd64"
 export distribution="xenial"
 export REPOS="xenial"
 export BUILD_ONLY=true
