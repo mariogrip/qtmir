@@ -26,11 +26,11 @@
 
 // upstart
 extern "C" {
-    #include "ubuntu-app-launch.h"
+    #include "lomiri-app-launch.h"
 }
-#include <ubuntu-app-launch/registry.h>
+#include <lomiri-app-launch/registry.h>
 
-namespace ual = ubuntu::app_launch;
+namespace ual = lomiri::app_launch;
 
 namespace qtmir
 {
@@ -40,13 +40,13 @@ namespace upstart
 struct TaskController::Private
 {
     std::shared_ptr<ual::Registry> registry;
-    UbuntuAppLaunchAppObserver preStartCallback = nullptr;
-    UbuntuAppLaunchAppObserver startedCallback = nullptr;
-    UbuntuAppLaunchAppObserver stopCallback = nullptr;
-    UbuntuAppLaunchAppObserver focusCallback = nullptr;
-    UbuntuAppLaunchAppObserver resumeCallback = nullptr;
-    UbuntuAppLaunchAppPausedResumedObserver pausedCallback = nullptr;
-    UbuntuAppLaunchAppFailedObserver failureCallback = nullptr;
+    LomiriAppLaunchAppObserver preStartCallback = nullptr;
+    LomiriAppLaunchAppObserver startedCallback = nullptr;
+    LomiriAppLaunchAppObserver stopCallback = nullptr;
+    LomiriAppLaunchAppObserver focusCallback = nullptr;
+    LomiriAppLaunchAppObserver resumeCallback = nullptr;
+    LomiriAppLaunchAppPausedResumedObserver pausedCallback = nullptr;
+    LomiriAppLaunchAppFailedObserver failureCallback = nullptr;
 };
 
 namespace {
@@ -57,7 +57,7 @@ namespace {
  */
 QString toShortAppIdIfPossible(const QString &appId) {
     gchar *package, *application;
-    if (ubuntu_app_launch_app_id_parse(appId.toLatin1().constData(), &package, &application, nullptr)) {
+    if (lomiri_app_launch_app_id_parse(appId.toLatin1().constData(), &package, &application, nullptr)) {
         // is long appId, so assemble its short appId
         QString shortAppId = QStringLiteral("%1_%2").arg(package, application);
         g_free(package);
@@ -123,36 +123,36 @@ TaskController::TaskController()
         Q_EMIT(thiz->processSuspended(toShortAppIdIfPossible(appId)));
     };
 
-    impl->failureCallback = [](const gchar * appId, UbuntuAppLaunchAppFailed failureType, gpointer userData) {
+    impl->failureCallback = [](const gchar * appId, LomiriAppLaunchAppFailed failureType, gpointer userData) {
         TaskController::Error error;
         switch(failureType)
         {
-        case UBUNTU_APP_LAUNCH_APP_FAILED_CRASH: error = TaskController::Error::APPLICATION_CRASHED;                    break;
-        case UBUNTU_APP_LAUNCH_APP_FAILED_START_FAILURE: error = TaskController::Error::APPLICATION_FAILED_TO_START;    break;
+        case LOMIRI_APP_LAUNCH_APP_FAILED_CRASH: error = TaskController::Error::APPLICATION_CRASHED;                    break;
+        case LOMIRI_APP_LAUNCH_APP_FAILED_START_FAILURE: error = TaskController::Error::APPLICATION_FAILED_TO_START;    break;
         }
 
         auto thiz = static_cast<TaskController*>(userData);
         Q_EMIT(thiz->processFailed(toShortAppIdIfPossible(appId), error));
     };
 
-    ubuntu_app_launch_observer_add_app_starting(impl->preStartCallback, this);
-    ubuntu_app_launch_observer_add_app_started(impl->startedCallback, this);
-    ubuntu_app_launch_observer_add_app_stop(impl->stopCallback, this);
-    ubuntu_app_launch_observer_add_app_focus(impl->focusCallback, this);
-    ubuntu_app_launch_observer_add_app_resume(impl->resumeCallback, this);
-    ubuntu_app_launch_observer_add_app_paused(impl->pausedCallback, this);
-    ubuntu_app_launch_observer_add_app_failed(impl->failureCallback, this);
+    lomiri_app_launch_observer_add_app_starting(impl->preStartCallback, this);
+    lomiri_app_launch_observer_add_app_started(impl->startedCallback, this);
+    lomiri_app_launch_observer_add_app_stop(impl->stopCallback, this);
+    lomiri_app_launch_observer_add_app_focus(impl->focusCallback, this);
+    lomiri_app_launch_observer_add_app_resume(impl->resumeCallback, this);
+    lomiri_app_launch_observer_add_app_paused(impl->pausedCallback, this);
+    lomiri_app_launch_observer_add_app_failed(impl->failureCallback, this);
 }
 
 TaskController::~TaskController()
 {
-    ubuntu_app_launch_observer_delete_app_starting(impl->preStartCallback, this);
-    ubuntu_app_launch_observer_delete_app_started(impl->startedCallback, this);
-    ubuntu_app_launch_observer_delete_app_stop(impl->stopCallback, this);
-    ubuntu_app_launch_observer_delete_app_focus(impl->focusCallback, this);
-    ubuntu_app_launch_observer_delete_app_resume(impl->resumeCallback, this);
-    ubuntu_app_launch_observer_delete_app_paused(impl->pausedCallback, this);
-    ubuntu_app_launch_observer_delete_app_failed(impl->failureCallback, this);
+    lomiri_app_launch_observer_delete_app_starting(impl->preStartCallback, this);
+    lomiri_app_launch_observer_delete_app_started(impl->startedCallback, this);
+    lomiri_app_launch_observer_delete_app_stop(impl->stopCallback, this);
+    lomiri_app_launch_observer_delete_app_focus(impl->focusCallback, this);
+    lomiri_app_launch_observer_delete_app_resume(impl->resumeCallback, this);
+    lomiri_app_launch_observer_delete_app_paused(impl->pausedCallback, this);
+    lomiri_app_launch_observer_delete_app_failed(impl->failureCallback, this);
 }
 
 bool TaskController::appIdHasProcessId(const QString& appId, pid_t pid)
@@ -192,7 +192,7 @@ bool TaskController::start(const QString& appId, const QStringList& arguments)
         return false;
     }
 
-    // Convert arguments QStringList into format suitable for ubuntu-app-launch
+    // Convert arguments QStringList into format suitable for lomiri-app-launch
     std::vector<ual::Application::URL> urls;
     for (auto &arg: arguments) {
         urls.emplace_back(ual::Application::URL::from_raw(arg.toStdString()));

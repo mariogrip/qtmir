@@ -348,7 +348,7 @@ void ApplicationManager::onProcessStarting(const QString &appId)
     qCDebug(QTMIR_APPLICATIONS) << "ApplicationManager::onProcessStarting - appId=" << appId;
 
     Application *application = findApplicationMutexHeld(appId);
-    if (!application) { // then shell did not start this application, so ubuntu-app-launch must have - add to list
+    if (!application) { // then shell did not start this application, so lomiri-app-launch must have - add to list
         auto appInfo = m_taskController->getInfoForApp(appId);
         if (!appInfo) {
             qCWarning(QTMIR_APPLICATIONS) << "ApplicationManager::onProcessStarting - Unable to instantiate application with appId" << appId;
@@ -537,7 +537,7 @@ void ApplicationManager::authorizeSession(const pid_t pid, bool &authorized)
      * Hack: Allow applications to be launched without being managed by upstart, where AppManager
      * itself manages processes executed with a "--desktop_file_hint=/path/to/desktopFile.desktop"
      * parameter attached, or an environment variable "DESKTOP_FILE_HINT=/path/to/desktopFile.desktop".
-     * This exists until all GUI applications are launched via ubuntu-app-launch.
+     * This exists until all GUI applications are launched via lomiri-app-launch.
      */
     std::unique_ptr<ProcInfo::CommandLine> info = m_procInfo->commandLine(pid);
     if (!info) {

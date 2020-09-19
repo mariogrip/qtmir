@@ -21,7 +21,7 @@ Index: multiwindow.screenwindow/debian/control
 +               libqt5test5,
                 libqtdbusmock1-dev (>= 0.2),
                 libqtdbustest1-dev (>= 0.2),
-                libubuntu-app-launch3-dev,
+                liblomiri-app-launch0-dev,
 @@ -35,8 +41,8 @@ Build-Depends: cmake,
  # lttng-gen-ts needs python3, but doesn't depend on it itself: bug 1359147
                 python3:any,

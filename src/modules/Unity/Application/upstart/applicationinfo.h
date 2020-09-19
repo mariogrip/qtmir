@@ -20,7 +20,7 @@
 
 #include "../applicationinfo.h"
 
-#include <ubuntu-app-launch/application.h>
+#include <lomiri-app-launch/application.h>
 
 namespace qtmir
 {
@@ -30,7 +30,7 @@ namespace upstart
 class ApplicationInfo : public qtmir::ApplicationInfo
 {
 public:
-    ApplicationInfo(const QString &appId, std::shared_ptr<ubuntu::app_launch::Application::Info> info);
+    ApplicationInfo(const QString &appId, std::shared_ptr<lomiri::app_launch::Application::Info> info);
 
     QString appId() const override;
     QString name() const override;
@@ -48,7 +48,7 @@ public:
 
 private:
     QString m_appId;
-    std::shared_ptr<ubuntu::app_launch::Application::Info> m_info;
+    std::shared_ptr<lomiri::app_launch::Application::Info> m_info;
 };
 
 } // namespace upstart
