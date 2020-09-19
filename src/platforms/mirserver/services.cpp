@@ -19,7 +19,7 @@
 #include <QUrl>
 #include <QByteArray>
 
-#include <url-dispatcher.h>
+#include <lomiri-url-dispatcher.h>
 
 bool Services::openUrl(const QUrl &url)
 {
@@ -36,7 +36,7 @@ bool Services::callDispatcher(const QUrl &qUrl)
     QByteArray encoded = qUrl.toEncoded();
     const char *url = encoded.constData();
 
-    url_dispatch_send(url, nullptr /*dispatch_callback*/, nullptr /*callback_data*/);
+    lomiri_url_dispatch_send(url, nullptr /*dispatch_callback*/, nullptr /*callback_data*/);
 
     // We are returning true here because the other option
     // is spawning a nested event loop and wait for the
