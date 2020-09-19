@@ -27,7 +27,7 @@
 #endif
 
 // Unity API
-#include <unity/shell/application/Mir.h>
+#include <lomiri/shell/application/Mir.h>
 
 using namespace mir::geometry;
 

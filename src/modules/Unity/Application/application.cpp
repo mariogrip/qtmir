@@ -31,12 +31,12 @@
 #include "initialsurfacesizes.h"
 
 // Unity API
-#include <unity/shell/application/MirSurfaceInterface.h>
+#include <lomiri/shell/application/MirSurfaceInterface.h>
 
 // std
 #include <csignal>
 
-namespace unityapp = unity::shell::application;
+namespace unityapp = lomiri::shell::application;
 
 #define DEBUG_MSG qCDebug(QTMIR_APPLICATIONS).nospace() << "Application[" << appId() <<"]::" << __func__
 #define INFO_MSG qCInfo(QTMIR_APPLICATIONS).nospace() << "Application[" << appId() <<"]::" << __func__

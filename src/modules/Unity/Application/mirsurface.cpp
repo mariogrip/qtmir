@@ -53,7 +53,7 @@
 #include <limits>
 
 using namespace qtmir;
-namespace unityapi = unity::shell::application;
+namespace unityapi = lomiri::shell::application;
 
 #define DEBUG_MSG qCDebug(QTMIR_SURFACES).nospace() << "MirSurface[" << (void*)this << "," << appId() << "]::" << __func__
 #define INFO_MSG qCInfo(QTMIR_SURFACES).nospace() << "MirSurface[" << (void*)this << "," << appId() << "]::" << __func__

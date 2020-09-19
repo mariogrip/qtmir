@@ -21,7 +21,7 @@
 #include <memory>
 
 // Unity API
-#include <unity/shell/application/ApplicationInfoInterface.h>
+#include <lomiri/shell/application/ApplicationInfoInterface.h>
 
 // local
 #include "objectlistmodel.h"
@@ -45,7 +45,7 @@ class PromptSession;
 class SessionInterface : public QObject {
     Q_OBJECT
 
-    Q_PROPERTY(unity::shell::application::ApplicationInfoInterface* application READ application NOTIFY applicationChanged DESIGNABLE false)
+    Q_PROPERTY(lomiri::shell::application::ApplicationInfoInterface* application READ application NOTIFY applicationChanged DESIGNABLE false)
     Q_PROPERTY(SessionModel* childSessions READ childSessions DESIGNABLE false CONSTANT)
     Q_PROPERTY(bool fullscreen READ fullscreen NOTIFY fullscreenChanged)
     Q_PROPERTY(bool live READ live NOTIFY liveChanged)
@@ -64,7 +64,7 @@ public:
 
     //getters
     virtual QString name() const = 0;
-    virtual unity::shell::application::ApplicationInfoInterface* application() const = 0;
+    virtual lomiri::shell::application::ApplicationInfoInterface* application() const = 0;
 
     // List of surfaces in this session. Surfaces that are being forcibly closed are not present in this list
     virtual MirSurfaceListModel* surfaceList() = 0;
@@ -85,7 +85,7 @@ public:
 
     // For Application use
 
-    virtual void setApplication(unity::shell::application::ApplicationInfoInterface* item) = 0;
+    virtual void setApplication(lomiri::shell::application::ApplicationInfoInterface* item) = 0;
     virtual void suspend() = 0;
     virtual void resume() = 0;
     virtual void close() = 0;
@@ -116,7 +116,7 @@ public:
     virtual void removePromptSession(const PromptSession& session) = 0;
 
 Q_SIGNALS:
-    void applicationChanged(unity::shell::application::ApplicationInfoInterface* application);
+    void applicationChanged(lomiri::shell::application::ApplicationInfoInterface* application);
     void stateChanged(State state);
     void fullscreenChanged(bool fullscreen);
     void liveChanged(bool live);

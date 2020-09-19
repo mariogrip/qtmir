@@ -33,7 +33,7 @@ public:
     virtual ~FakeSession();
 
     QString name() const override;
-    unity::shell::application::ApplicationInfoInterface* application() const override;
+    lomiri::shell::application::ApplicationInfoInterface* application() const override;
     MirSurfaceListModel* surfaceList() override;
     MirSurfaceListModel* promptSurfaceList() override;
     SessionModel* childSessions() const override;
@@ -49,7 +49,7 @@ public:
 
     // For Application use
 
-    void setApplication(unity::shell::application::ApplicationInfoInterface* app) override;
+    void setApplication(lomiri::shell::application::ApplicationInfoInterface* app) override;
     void suspend() override;
     void resume() override;
     void stop() override;
@@ -84,7 +84,7 @@ public:
     void setSession(std::shared_ptr<mir::scene::Session> session);
 
 private:
-    unity::shell::application::ApplicationInfoInterface* m_application;
+    lomiri::shell::application::ApplicationInfoInterface* m_application;
     State m_state;
     std::shared_ptr<mir::scene::Session> m_session;
     MirSurfaceListModel m_surfaceList;

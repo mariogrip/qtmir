@@ -20,8 +20,8 @@
 #include <mir_toolkit/event.h>
 
 // Unity API
-#include <unity/shell/application/ApplicationInfoInterface.h>
-#include <unity/shell/application/Mir.h>
+#include <lomiri/shell/application/ApplicationInfoInterface.h>
+#include <lomiri/shell/application/Mir.h>
 
 const char *touchPointStateToString(Qt::TouchPointState state)
 {
@@ -177,7 +177,7 @@ const char *mirSurfaceVisibilityToStr(int value)
     }
 }
 
-using namespace unity::shell::application;
+using namespace lomiri::shell::application;
 
 const char *applicationStateToStr(int state)
 {

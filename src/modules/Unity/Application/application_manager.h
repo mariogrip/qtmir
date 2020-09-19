@@ -30,7 +30,7 @@
 #include "taskcontroller.h"
 
 // Unity API
-#include <unity/shell/application/ApplicationManagerInterface.h>
+#include <lomiri/shell/application/ApplicationManagerInterface.h>
 
 namespace mir {
     namespace scene {
@@ -56,7 +56,7 @@ class ProcInfo;
 class SharedWakelock;
 class SettingsInterface;
 
-class ApplicationManager : public unity::shell::application::ApplicationManagerInterface,
+class ApplicationManager : public lomiri::shell::application::ApplicationManagerInterface,
                            public SessionMapInterface
 {
     Q_OBJECT
@@ -74,11 +74,11 @@ public:
             QObject *parent = 0);
     virtual ~ApplicationManager();
 
-    // unity::shell::application::ApplicationManagerInterface
+    // lomiri::shell::application::ApplicationManagerInterface
     QString focusedApplicationId() const override;
     Q_INVOKABLE qtmir::Application* get(int index) const override;
     Q_INVOKABLE qtmir::Application* findApplication(const QString &appId) const override;
-    unity::shell::application::ApplicationInfoInterface *findApplicationWithSurface(unity::shell::application::MirSurfaceInterface* surface) const override;
+    lomiri::shell::application::ApplicationInfoInterface *findApplicationWithSurface(lomiri::shell::application::MirSurfaceInterface* surface) const override;
     Q_INVOKABLE bool requestFocusApplication(const QString &appId) override;
     Q_INVOKABLE qtmir::Application* startApplication(const QString &appId, const QStringList &arguments = QStringList()) override;
     Q_INVOKABLE bool stopApplication(const QString &appId) override;

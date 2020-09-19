@@ -32,8 +32,8 @@
 // qtmir
 #include "logging.h"
 
-// unity-api
-#include <unity/shell/application/Mir.h>
+// lomiri-api
+#include <lomiri/shell/application/Mir.h>
 
 using namespace qtmir;
 
@@ -66,22 +66,22 @@ class UnityApplicationPlugin : public QQmlExtensionPlugin {
 
         qRegisterMetaType<qtmir::ApplicationManager*>("ApplicationManager*"); //need for queueing signals
         qRegisterMetaType<qtmir::Application*>("Application*");
-        qRegisterMetaType<unity::shell::application::MirSurfaceInterface*>("MirSurfaceInterface*");
-        qRegisterMetaType<unity::shell::application::MirSurfaceListInterface*>("unity::shell::application::MirSurfaceListInterface*");
-        qRegisterMetaType<unity::shell::application::SurfaceManagerInterface*>("unity::shell::application::SurfaceManagerInterface*");
+        qRegisterMetaType<lomiri::shell::application::MirSurfaceInterface*>("MirSurfaceInterface*");
+        qRegisterMetaType<lomiri::shell::application::MirSurfaceListInterface*>("lomiri::shell::application::MirSurfaceListInterface*");
+        qRegisterMetaType<lomiri::shell::application::SurfaceManagerInterface*>("lomiri::shell::application::SurfaceManagerInterface*");
         qRegisterMetaType<MirWindowAttrib>("MirWindowAttrib");
 
         qRegisterMetaType<std::shared_ptr<miral::Workspace>>("std::shared_ptr<miral::Workspace>");
 
-        qmlRegisterUncreatableType<unity::shell::application::ApplicationManagerInterface>(
+        qmlRegisterUncreatableType<lomiri::shell::application::ApplicationManagerInterface>(
                     uri, 0, 1, "ApplicationManagerInterface", "Abstract interface. Cannot be created in QML");
         qmlRegisterSingletonType<qtmir::ApplicationManager>(
                     uri, 0, 1, "ApplicationManager", applicationManagerSingleton);
-        qmlRegisterUncreatableType<unity::shell::application::ApplicationInfoInterface>(
+        qmlRegisterUncreatableType<lomiri::shell::application::ApplicationInfoInterface>(
                     uri, 0, 1, "ApplicationInfoInterface", "Abstract interface. Cannot be created in QML");
         qmlRegisterUncreatableType<qtmir::Application>(
                     uri, 0, 1, "ApplicationInfo", "Application can't be instantiated");
-        qmlRegisterUncreatableType<unity::shell::application::MirSurfaceInterface>(
+        qmlRegisterUncreatableType<lomiri::shell::application::MirSurfaceInterface>(
                     uri, 0, 1, "MirSurface", "MirSurface can't be instantiated from QML");
         qmlRegisterType<qtmir::MirSurfaceItem>(uri, 0, 1, "MirSurfaceItem");
         qmlRegisterSingletonType<qtmir::Mir>(uri, 0, 1, "Mir", mirSingleton);

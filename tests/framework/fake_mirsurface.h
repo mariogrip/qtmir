@@ -82,8 +82,8 @@ public:
     bool allowClientResize() const override { return true; }
     void setAllowClientResize(bool) override {}
 
-    unity::shell::application::MirSurfaceInterface *parentSurface() const override { return nullptr; }
-    unity::shell::application::MirSurfaceListInterface *childSurfaceList() const override { return nullptr; }
+    lomiri::shell::application::MirSurfaceInterface *parentSurface() const override { return nullptr; }
+    lomiri::shell::application::MirSurfaceListInterface *childSurfaceList() const override { return nullptr; }
 
     void close() override {
         Q_EMIT closeRequested();

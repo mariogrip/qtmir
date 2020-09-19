@@ -31,7 +31,7 @@ using namespace qtmir;
 using mir::scene::MockSession;
 
 namespace ms = mir::scene;
-namespace unityapi = unity::shell::application;
+namespace unityapi = lomiri::shell::application;
 
 class ApplicationManagerTests : public ::testing::QtMirTest
 {

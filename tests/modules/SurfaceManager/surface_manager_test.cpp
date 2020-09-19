@@ -48,8 +48,8 @@ public:
         // We don't want the logging spam cluttering the test results
         QLoggingCategory::setFilterRules(QStringLiteral("qtmir.*=false"));
 
-        qRegisterMetaType<unity::shell::application::MirSurfaceInterface*>();
-        qRegisterMetaType<QVector<unity::shell::application::MirSurfaceInterface*>>();
+        qRegisterMetaType<lomiri::shell::application::MirSurfaceInterface*>();
+        qRegisterMetaType<QVector<lomiri::shell::application::MirSurfaceInterface*>>();
     }
 
     testing::NiceMock<MockWindowController> wmController;
@@ -333,7 +333,7 @@ TEST_F(SurfaceManagerTests, miralsRaiseWindowListTransformedToVectorOfMirSurface
 
     // Check results
     ASSERT_EQ(1, mirSurfacesRaisedSpy.count());
-    auto raiseMirSurfaceList = qvariant_cast<QVector<unity::shell::application::MirSurfaceInterface*>>(
+    auto raiseMirSurfaceList = qvariant_cast<QVector<lomiri::shell::application::MirSurfaceInterface*>>(
                                                  mirSurfacesRaisedSpy.takeFirst().at(0)); // first argument of signal
     ASSERT_EQ(2, raiseMirSurfaceList.count());
     EXPECT_EQ(mirSurface1, raiseMirSurfaceList.at(1));

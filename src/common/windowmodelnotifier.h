@@ -26,7 +26,7 @@
 #include <miral/window_management_policy.h>
 
 // Unity API
-#include <unity/shell/application/Mir.h>
+#include <lomiri/shell/application/Mir.h>
 
 namespace qtmir {
 

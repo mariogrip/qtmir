@@ -35,7 +35,7 @@ FakeSession::~FakeSession()
 
 QString FakeSession::name() const { return QString("foo-session"); }
 
-unity::shell::application::ApplicationInfoInterface *FakeSession::application() const { return m_application; }
+lomiri::shell::application::ApplicationInfoInterface *FakeSession::application() const { return m_application; }
 
 MirSurfaceListModel* FakeSession::surfaceList() { return &m_surfaceList; }
 
@@ -56,7 +56,7 @@ std::shared_ptr<mir::scene::Session> FakeSession::session() const
 
 void FakeSession::registerSurface(MirSurfaceInterface *) {}
 
-void FakeSession::setApplication(unity::shell::application::ApplicationInfoInterface *app)
+void FakeSession::setApplication(lomiri::shell::application::ApplicationInfoInterface *app)
 {
     if (m_application != app) {
         m_application = app;

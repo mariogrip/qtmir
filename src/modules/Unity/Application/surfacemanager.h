@@ -21,7 +21,7 @@
 #include "windowmodelnotifier.h"
 
 // Unity API
-#include <unity/shell/application/SurfaceManagerInterface.h>
+#include <lomiri/shell/application/SurfaceManagerInterface.h>
 
 #include <QVector>
 #include <QLoggingCategory>
@@ -37,7 +37,7 @@ class SessionMapInterface;
 class WindowControllerInterface;
 class WorkspaceControllerInterface;
 
-class SurfaceManager : public unity::shell::application::SurfaceManagerInterface
+class SurfaceManager : public lomiri::shell::application::SurfaceManagerInterface
 {
     Q_OBJECT
 
@@ -49,12 +49,12 @@ public:
 
     static SurfaceManager *instance();
 
-    void raise(unity::shell::application::MirSurfaceInterface *surface) override;
-    void activate(unity::shell::application::MirSurfaceInterface *surface) override;
+    void raise(lomiri::shell::application::MirSurfaceInterface *surface) override;
+    void activate(lomiri::shell::application::MirSurfaceInterface *surface) override;
 
     void forEachSurfaceInWorkspace(const std::shared_ptr<miral::Workspace> &workspace,
-                                   const std::function<void(unity::shell::application::MirSurfaceInterface*)> &callback) override;
-    void moveSurfaceToWorkspace(unity::shell::application::MirSurfaceInterface* surface,
+                                   const std::function<void(lomiri::shell::application::MirSurfaceInterface*)> &callback) override;
+    void moveSurfaceToWorkspace(lomiri::shell::application::MirSurfaceInterface* surface,
                                 const std::shared_ptr<miral::Workspace> &workspace) override;
     void moveWorkspaceContentToWorkspace(const std::shared_ptr<miral::Workspace> &to,
                                          const std::shared_ptr<miral::Workspace> &from) override;
@@ -71,7 +71,7 @@ private:
     void connectToWindowModelNotifier(WindowModelNotifier *notifier);
     void rememberMirSurface(MirSurface *surface);
     void forgetMirSurface(const miral::Window &window);
-    QVector<unity::shell::application::MirSurfaceInterface*> surfacesFor(const std::vector<miral::Window> &windows) const;
+    QVector<lomiri::shell::application::MirSurfaceInterface*> surfacesFor(const std::vector<miral::Window> &windows) const;
     miral::Window windowFor(MirSurface *surface) const;
 
     WindowControllerInterface *m_windowController;

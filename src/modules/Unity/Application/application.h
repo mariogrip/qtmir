@@ -27,7 +27,7 @@
 #include <QVector>
 
 // Unity API
-#include <unity/shell/application/ApplicationInfoInterface.h>
+#include <lomiri/shell/application/ApplicationInfoInterface.h>
 
 #include "mirsurfacelistmodel.h"
 #include "session_interface.h"
@@ -41,7 +41,7 @@ class Session;
 class SharedWakelock;
 class AbstractTimer;
 
-class Application : public unity::shell::application::ApplicationInfoInterface
+class Application : public lomiri::shell::application::ApplicationInfoInterface
 {
     Q_OBJECT
 
@@ -101,8 +101,8 @@ public:
     void setExemptFromLifecycle(bool) override;
     QSize initialSurfaceSize() const override;
     void setInitialSurfaceSize(const QSize &size) override;
-    unity::shell::application::MirSurfaceListInterface* surfaceList() const override;
-    unity::shell::application::MirSurfaceListInterface* promptSurfaceList() const override;
+    lomiri::shell::application::MirSurfaceListInterface* surfaceList() const override;
+    lomiri::shell::application::MirSurfaceListInterface* promptSurfaceList() const override;
     int surfaceCount() const override { return surfaceList()->count(); }
     void close() override;
 
@@ -121,7 +121,7 @@ public:
 
     Stages supportedStages() const;
 
-    // internal as in "not exposed in unity-api", so qtmir-internal.
+    // internal as in "not exposed in lomiri-api", so qtmir-internal.
     InternalState internalState() const { return m_state; }
     bool isClosing() const { return m_closing; }
 

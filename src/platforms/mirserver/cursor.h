@@ -22,7 +22,7 @@
 #include <QPointer>
 
 // Unity API
-#include <unity/shell/application/MirPlatformCursor.h>
+#include <lomiri/shell/application/MirPlatformCursor.h>
 
 namespace qtmir {
 

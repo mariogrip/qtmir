@@ -598,12 +598,12 @@ void MirSurfaceItem::setConsumesInput(bool value)
     Q_EMIT consumesInputChanged(value);
 }
 
-unity::shell::application::MirSurfaceInterface* MirSurfaceItem::surface() const
+lomiri::shell::application::MirSurfaceInterface* MirSurfaceItem::surface() const
 {
     return m_surface;
 }
 
-void MirSurfaceItem::setSurface(unity::shell::application::MirSurfaceInterface *unitySurface)
+void MirSurfaceItem::setSurface(lomiri::shell::application::MirSurfaceInterface *unitySurface)
 {
     QMutexLocker mutexLocker(&m_mutex);
 

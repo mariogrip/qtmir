@@ -23,7 +23,7 @@
 #include <QDebug>
 #include <QDebugStateSaver>
 
-namespace unityapp = unity::shell::application;
+namespace unityapp = lomiri::shell::application;
 using namespace qtmir;
 
 MirSurfaceListModel::MirSurfaceListModel(QObject *parent) :
@@ -217,7 +217,7 @@ bool MirSurfaceListModel::isEmpty() const
 //////////////////////////////////////////////////////////////////////////////
 
 ProxySurfaceListModel::ProxySurfaceListModel(QObject *parent):
-    unity::shell::application::MirSurfaceListInterface(parent)
+    lomiri::shell::application::MirSurfaceListInterface(parent)
 {
 }
 

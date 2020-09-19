@@ -47,14 +47,14 @@ public:
 
     //getters
     QString name() const override;
-    unity::shell::application::ApplicationInfoInterface* application() const override;
+    lomiri::shell::application::ApplicationInfoInterface* application() const override;
     MirSurfaceListModel* surfaceList() override;
     MirSurfaceListModel* promptSurfaceList() override;
     State state() const override;
     bool fullscreen() const override;
     bool live() const override;
 
-    void setApplication(unity::shell::application::ApplicationInfoInterface* item) override;
+    void setApplication(lomiri::shell::application::ApplicationInfoInterface* item) override;
 
     void registerSurface(MirSurfaceInterface* surface) override;
 

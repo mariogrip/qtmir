@@ -62,7 +62,7 @@ public:
     virtual ~MirSurface();
 
     ////
-    // unity::shell::application::MirSurfaceInterface
+    // lomiri::shell::application::MirSurfaceInterface
 
     Mir::Type type() const override;
 
@@ -105,8 +105,8 @@ public:
 
     Q_INVOKABLE void activate() override;
 
-    unity::shell::application::MirSurfaceInterface *parentSurface() const override;
-    unity::shell::application::MirSurfaceListInterface *childSurfaceList() const override;
+    lomiri::shell::application::MirSurfaceInterface *parentSurface() const override;
+    lomiri::shell::application::MirSurfaceListInterface *childSurfaceList() const override;
 
     Q_INVOKABLE void close() override;
     Q_INVOKABLE void forceClose() override;
@@ -185,7 +185,7 @@ public:
 
 public Q_SLOTS:
     ////
-    // unity::shell::application::MirSurfaceInterface
+    // lomiri::shell::application::MirSurfaceInterface
     void requestState(Mir::State qmlState) override;
 
     ////

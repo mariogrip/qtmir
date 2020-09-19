@@ -24,7 +24,7 @@
 #include <QTimer>
 
 // Unity API
-#include <unity/shell/application/MirSurfaceItemInterface.h>
+#include <lomiri/shell/application/MirSurfaceItemInterface.h>
 
 #include "mirsurfaceinterface.h"
 #include "session_interface.h"
@@ -34,7 +34,7 @@ namespace qtmir {
 class QSGMirSurfaceNode;
 class SurfaceItemTextureProvider;
 
-class MirSurfaceItem : public unity::shell::application::MirSurfaceItemInterface
+class MirSurfaceItem : public lomiri::shell::application::MirSurfaceItemInterface
 {
     Q_OBJECT
 
@@ -55,8 +55,8 @@ public:
     Mir::OrientationAngle orientationAngle() const override;
     void setOrientationAngle(Mir::OrientationAngle angle) override;
 
-    unity::shell::application::MirSurfaceInterface* surface() const override;
-    void setSurface(unity::shell::application::MirSurfaceInterface*) override;
+    lomiri::shell::application::MirSurfaceInterface* surface() const override;
+    void setSurface(lomiri::shell::application::MirSurfaceInterface*) override;
 
     bool consumesInput() const override;
     void setConsumesInput(bool value) override;

@@ -17,8 +17,8 @@
 #ifndef QTMIR_MIRSURFACELISTMODEL_H
 #define QTMIR_MIRSURFACELISTMODEL_H
 
-// unity-api
-#include <unity/shell/application/MirSurfaceListInterface.h>
+// lomiri-api
+#include <lomiri/shell/application/MirSurfaceListInterface.h>
 
 #include <QAbstractListModel>
 #include <QList>
@@ -36,15 +36,15 @@ class CombinedSurfaceListModel;
    It's possible combine several list models into a new, separate, one which will track
    changes done to those original models and reflect them appropriately.
  */
-class MirSurfaceListModel : public unity::shell::application::MirSurfaceListInterface
+class MirSurfaceListModel : public lomiri::shell::application::MirSurfaceListInterface
 {
     Q_OBJECT
 public:
     explicit MirSurfaceListModel(QObject *parent = 0);
     virtual ~MirSurfaceListModel();
 
-    Q_INVOKABLE unity::shell::application::MirSurfaceInterface *get(int index) override;
-    const unity::shell::application::MirSurfaceInterface *get(int index) const;
+    Q_INVOKABLE lomiri::shell::application::MirSurfaceInterface *get(int index) override;
+    const lomiri::shell::application::MirSurfaceInterface *get(int index) const;
 
     // QAbstractItemModel methods
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -77,15 +77,15 @@ private:
 /*
    Acts as if it were its source list.
  */
-class ProxySurfaceListModel : public unity::shell::application::MirSurfaceListInterface
+class ProxySurfaceListModel : public lomiri::shell::application::MirSurfaceListInterface
 {
     Q_OBJECT
 public:
     ProxySurfaceListModel(QObject *parent = nullptr);
     void setSourceList(MirSurfaceListModel *sourceList);
 
-    Q_INVOKABLE unity::shell::application::MirSurfaceInterface *get(int index) override;
-    const unity::shell::application::MirSurfaceInterface *get(int index) const;
+    Q_INVOKABLE lomiri::shell::application::MirSurfaceInterface *get(int index) override;
+    const lomiri::shell::application::MirSurfaceInterface *get(int index) const;
     // QAbstractItemModel methods
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex& index, int role) const override;
@@ -95,6 +95,6 @@ private:
 
 } // namespace qtmir
 
-QDebug operator<<(QDebug, const unity::shell::application::MirSurfaceListInterface &);
+QDebug operator<<(QDebug, const lomiri::shell::application::MirSurfaceListInterface &);
 
 #endif // QTMIR_MIRSURFACELISTMODEL_H

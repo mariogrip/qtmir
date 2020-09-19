@@ -17,8 +17,8 @@
 #ifndef QTMIR_MIRSINGLETON_H
 #define QTMIR_MIRSINGLETON_H
 
-// unity-api
-#include <unity/shell/application/Mir.h>
+// lomiri-api
+#include <lomiri/shell/application/Mir.h>
 
 namespace qtmir {
 

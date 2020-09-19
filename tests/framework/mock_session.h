@@ -31,7 +31,7 @@ public:
     MOCK_METHOD0(release, void());
 
     MOCK_CONST_METHOD0(name, QString());
-    MOCK_CONST_METHOD0(application, unity::shell::application::ApplicationInfoInterface*());
+    MOCK_CONST_METHOD0(application, lomiri::shell::application::ApplicationInfoInterface*());
     MOCK_CONST_METHOD0(lastSurface, MirSurfaceInterface*());
     MOCK_METHOD0(surfaceList, MirSurfaceListModel*());
     MOCK_CONST_METHOD0(childSessions, SessionModel*());
@@ -46,7 +46,7 @@ public:
     MOCK_METHOD1(registerSurface, void(MirSurfaceInterface* surface));
     MOCK_METHOD1(removeSurface, void(MirSurfaceInterface* surface));
 
-    MOCK_METHOD1(setApplication, void(unity::shell::application::ApplicationInfoInterface* item));
+    MOCK_METHOD1(setApplication, void(lomiri::shell::application::ApplicationInfoInterface* item));
 
     MOCK_METHOD0(suspend, void());
     MOCK_METHOD0(resume, void());

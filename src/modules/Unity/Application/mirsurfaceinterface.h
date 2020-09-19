@@ -18,7 +18,7 @@
 #define QTMIR_MIRSURFACEINTERFACE_H
 
 // Unity API
-#include <unity/shell/application/MirSurfaceInterface.h>
+#include <lomiri/shell/application/MirSurfaceInterface.h>
 
 #include "session_interface.h"
 
@@ -35,12 +35,12 @@ class QSGTexture;
 
 namespace qtmir {
 
-class MirSurfaceInterface : public unity::shell::application::MirSurfaceInterface
+class MirSurfaceInterface : public lomiri::shell::application::MirSurfaceInterface
 {
     Q_OBJECT
 
 public:
-    MirSurfaceInterface(QObject *parent = nullptr) : unity::shell::application::MirSurfaceInterface(parent) {}
+    MirSurfaceInterface(QObject *parent = nullptr) : lomiri::shell::application::MirSurfaceInterface(parent) {}
     virtual ~MirSurfaceInterface() {}
 
     virtual void setLive(bool value) = 0;

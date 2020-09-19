@@ -23,7 +23,7 @@
 #include <QQuickWindow>
 
 // Unity API
-#include <unity/shell/application/MirMousePointerInterface.h>
+#include <lomiri/shell/application/MirMousePointerInterface.h>
 
 namespace qtmir {
 

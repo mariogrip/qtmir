@@ -37,7 +37,7 @@ Q_LOGGING_CATEGORY(QTMIR_SURFACEMANAGER, "qtmir.surfacemanager", QtInfoMsg)
 #define WARNING_MSG qCWarning(QTMIR_SURFACEMANAGER).nospace().noquote() << __func__
 
 using namespace qtmir;
-namespace unityapi = unity::shell::application;
+namespace unityapi = lomiri::shell::application;
 
 SurfaceManager *SurfaceManager::instance()
 {
@@ -207,7 +207,7 @@ MirSurface *SurfaceManager::surfaceFor(const miral::Window &window) const
     return nullptr;
 }
 
-QVector<unity::shell::application::MirSurfaceInterface *> SurfaceManager::surfacesFor(const std::vector<miral::Window> &windows) const
+QVector<lomiri::shell::application::MirSurfaceInterface *> SurfaceManager::surfacesFor(const std::vector<miral::Window> &windows) const
 {
     QVector<unityapi::MirSurfaceInterface*> surfaces;
     for (size_t i = 0; i < windows.size(); i++) {
@@ -245,7 +245,7 @@ void SurfaceManager::activate(unityapi::MirSurfaceInterface *surface)
 }
 
 void SurfaceManager::forEachSurfaceInWorkspace(const std::shared_ptr<miral::Workspace> &workspace,
-                                               const std::function<void(unity::shell::application::MirSurfaceInterface *)> &callback)
+                                               const std::function<void(lomiri::shell::application::MirSurfaceInterface *)> &callback)
 {
     m_workspaceController->forEachWindowInWorkspace(workspace, [&](const miral::Window &window) {
         auto surface = surfaceFor(window);
@@ -255,7 +255,7 @@ void SurfaceManager::forEachSurfaceInWorkspace(const std::shared_ptr<miral::Work
     });
 }
 
-void SurfaceManager::moveSurfaceToWorkspace(unity::shell::application::MirSurfaceInterface *surface,
+void SurfaceManager::moveSurfaceToWorkspace(lomiri::shell::application::MirSurfaceInterface *surface,
                                             const std::shared_ptr<miral::Workspace> &workspace)
 {
     miral::Window window = windowFor(static_cast<qtmir::MirSurface*>(surface));

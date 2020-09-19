@@ -47,11 +47,11 @@
 #include <csignal>
 
 // Unity API
-#include <unity/shell/application/MirSurfaceInterface.h>
+#include <lomiri/shell/application/MirSurfaceInterface.h>
 
 namespace ms = mir::scene;
 
-namespace unityapi = unity::shell::application;
+namespace unityapi = lomiri::shell::application;
 
 #define DEBUG_MSG qCDebug(QTMIR_APPLICATIONS).nospace() << "ApplicationManager::" << __func__
 

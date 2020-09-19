@@ -34,7 +34,7 @@
 
 namespace ms = mir::scene;
 
-using unity::shell::application::ApplicationInfoInterface;
+using lomiri::shell::application::ApplicationInfoInterface;
 
 #define DEBUG_MSG qCDebug(QTMIR_SURFACES).nospace() << "Session[" << (void*)this << ",name=" << name() << "]::" << __func__
 
