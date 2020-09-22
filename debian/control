@@ -51,11 +51,9 @@ Homepage: https://github.com/ubports/qtmir
 Package: qtmir-android
 Architecture: armhf arm64
 Multi-Arch: same
-Conflicts: libqtmir,
-           qtmir-desktop,
+Conflicts: qtmir-desktop,
            qtubuntu-desktop,
-Replaces: libqtmir,
-          qtmir-desktop,
+Replaces: qtmir-desktop,
           qtubuntu-desktop,
 Provides: qtmir,
 Depends: ${misc:Depends},
@@ -72,8 +70,7 @@ Architecture: any
 Multi-Arch: same
 Conflicts: qtmir-android,
            qtubuntu-android,
-Replaces: libqtmir,
-          qtmir-android,
+Replaces: qtmir-android,
           qtubuntu-android,
 Provides: qtmir,
 Depends: ${misc:Depends},
@@ -121,12 +118,8 @@ Pre-Depends: ${misc:Pre-Depends},
 Depends: qtmir-desktop (= ${source:Version}) | qtmir-android (= ${source:Version}),
          ${misc:Depends},
          ${shlibs:Depends},
-Replaces: libqtmir,
-          libunity-mir1,
-Conflicts: libqtmir,
-           libunity-mir1,
-Provides: unity-application-impl,
-          unity-application-impl-27,
+Provides: lomiri-application-impl,
+          lomiri-application-impl-27,
 Description: Qt plugin for Unity specific Mir APIs
  QtMir provides Qt/QML bindings for Mir features that are exposed through the
  qtmir-desktop or qtmir-android QPA plugin such as Application management

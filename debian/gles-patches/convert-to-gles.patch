@@ -1,13 +1,13 @@
-Index: multiwindow.screenwindow/debian/control
+Index: qtmir-next/debian/control
 ===================================================================
---- multiwindow.screenwindow.orig/debian/control
-+++ multiwindow.screenwindow/debian/control
+--- qtmir-next.orig/debian/control
++++ qtmir-next/debian/control
 @@ -1,4 +1,4 @@
 -Source: qtmir
 +Source: qtmir-gles
  Section: libs
  Priority: optional
- Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+ Maintainer: UBports Developers <developers@ubports.com>
 @@ -19,7 +19,13 @@ Build-Depends: cmake,
                 libmirserver-dev (>= 0.26.0),
                 libmtdev-dev,
@@ -22,7 +22,7 @@ Index: multiwindow.screenwindow/debian/control
                 libqtdbusmock1-dev (>= 0.2),
                 libqtdbustest1-dev (>= 0.2),
                 liblomiri-app-launch0-dev,
-@@ -35,8 +41,8 @@ Build-Depends: cmake,
+@@ -34,8 +40,8 @@ Build-Depends: cmake,
  # lttng-gen-ts needs python3, but doesn't depend on it itself: bug 1359147
                 python3:any,
                 qt5-default,
@@ -33,16 +33,16 @@ Index: multiwindow.screenwindow/debian/control
                 qtdeclarative5-dev,
                 qtdeclarative5-private-dev,
                 quilt,
-@@ -54,7 +60,7 @@ Vcs-Bzr: lp:qtmir
- Vcs-Browser: http://bazaar.launchpad.net/~mir-team/qtmir/trunk/files
+@@ -49,7 +55,7 @@ Standards-Version: 3.9.5
+ Homepage: https://github.com/ubports/qtmir
  
  Package: qtmir-android
 -Architecture: armhf arm64
 +Architecture: amd64 i386
  Multi-Arch: same
- Conflicts: libqtmir,
-            qtmir-desktop,
-@@ -65,30 +71,13 @@ Replaces: libqtmir,
+ Conflicts: qtmir-desktop,
+            qtubuntu-desktop,
+@@ -58,29 +64,13 @@ Replaces: qtmir-desktop,
  Provides: qtmir,
  Depends: ${misc:Depends},
           ${shlibs:Depends},
@@ -59,8 +59,7 @@ Index: multiwindow.screenwindow/debian/control
 -Multi-Arch: same
 -Conflicts: qtmir-android,
 -           qtubuntu-android,
--Replaces: libqtmir,
--          qtmir-android,
+-Replaces: qtmir-android,
 -          qtubuntu-android,
 -Provides: qtmir,
 -Depends: ${misc:Depends},
@@ -76,10 +75,11 @@ Index: multiwindow.screenwindow/debian/control
  
  Package: libqtmirserver-dev
  Section: libdevel
-@@ -119,40 +108,3 @@ Description: QtMir server API shared lib
+@@ -110,37 +100,3 @@ Description: QtMir server API shared lib
+  a Mir server. It also exposes some internal Mir functionality.
   .
   Contains the shared library containing QtMir server API.
- 
+-
 -Package: qtdeclarative5-qtmir-plugin
 -Architecture: any
 -Multi-Arch: same
@@ -87,12 +87,8 @@ Index: multiwindow.screenwindow/debian/control
 -Depends: qtmir-desktop (= ${source:Version}) | qtmir-android (= ${source:Version}),
 -         ${misc:Depends},
 -         ${shlibs:Depends},
--Replaces: libqtmir,
--          libunity-mir1,
--Conflicts: libqtmir,
--           libunity-mir1,
--Provides: unity-application-impl,
--          unity-application-impl-27,
+-Provides: lomiri-application-impl,
+-          lomiri-application-impl-27,
 -Description: Qt plugin for Unity specific Mir APIs
 - QtMir provides Qt/QML bindings for Mir features that are exposed through the
 - qtmir-desktop or qtmir-android QPA plugin such as Application management
@@ -117,10 +113,10 @@ Index: multiwindow.screenwindow/debian/control
 -Description: QtMir tests and demos
 - This package provides benchmark tests and a simple shell and client using the
 - QtMir QPA.
-Index: multiwindow.screenwindow/debian/rules
+Index: qtmir-next/debian/rules
 ===================================================================
---- multiwindow.screenwindow.orig/debian/rules
-+++ multiwindow.screenwindow/debian/rules
+--- qtmir-next.orig/debian/rules
++++ qtmir-next/debian/rules
 @@ -3,68 +3,34 @@
  
  export DPKG_GENSYMBOLS_CHECK_LEVEL=4
