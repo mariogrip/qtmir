@@ -1,0 +1,36 @@
+Overview of changes in qtmir 0.6.1
+
+  * QtMir for Lomiri Operating Environment
+    (ported away from Unity 8 component dependencies).
+
+  * Reflect upstream mir v1.4 changes
+  * [tests] Specifically specify qtmir namespace
+  * Reflect upstream mir v1.5 changes
+  * Reflect upstream mir v1.6 changes
+  * Allow to be built without content-hub
+  * Fix polymorphic type
+  * Use qmlplugins from cmake-extras
+  * Try to maintain backward compatibility with older qt
+  * Commits in cpp start with //
+  * remove const from functions
+  * MirSurface: update visibility when surface's hidden is changed
+  * Get ready for the future by disabling deprecated functions
+    This disables deprecated functions in and before qt version 5.9
+  * Fix CMake error with Qt 5.14
+  * Use MirAL events to trigger our internal screen logic
+  * Catch std::out_of_range for activate too
+  * Fix CMake error with Qt 5.14
+  * Terminate application while force closing surface
+  * [MirSurfaceItem] Ignore hover move events with no timestamp
+  * Fix compilation with Qt 5.14
+  * Adjust for gmock 1.10.0
+  * mirserver: uses UbuntuTheme from qtubuntu
+  * mirserver: more proper support for QPlatformThemes
+  * Fix compilation with Qt 5.14
+  * Use lomiri-api
+  * Use lomiri-app-launch
+  * Move to lomiri-url-dispatcher
+  * Add missing include for newer gcc
+  * Fix deprecated handleMouseEvent call for 5.11
+  * Fix deprecated QWeakPointer::data()
+  * Fix ambiguous overload
