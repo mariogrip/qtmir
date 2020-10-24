@@ -126,6 +126,7 @@ add_library(qtmirserver-mirserver OBJECT
     eventdispatch.cpp eventdispatch.h
     promptsessionmanager.cpp promptsessionmanager.h promptsession.h
 )
+add_dependencies(qtmirserver-mirserver MirServer_LTTNG)
 
 # These files get entangled by automoc so they need to go together. And some depend on mirserver-dev
 set(QMIRSERVER_PLUGIN_SRC
