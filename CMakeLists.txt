@@ -95,7 +95,11 @@ pkg_check_modules(GSETTINGS_QT REQUIRED gsettings-qt)
 pkg_check_modules(QTDBUSTEST libqtdbustest-1 REQUIRED)
 pkg_check_modules(QTDBUSMOCK libqtdbusmock-1 REQUIRED)
 pkg_check_modules(APPLICATION_API REQUIRED lomiri-shell-application=27)
-pkg_check_modules(VALGRIND valgrind REQUIRED)
+pkg_check_modules(VALGRIND valgrind)
+
+if(VALGRIND_FOUND)
+    add_definitions(-DWITH_VALGRIND)
+endif()
 
 if(WITH_CONTENTHUB)
 pkg_check_modules(CONTENT_HUB libcontent-hub>=0.2 REQUIRED)
