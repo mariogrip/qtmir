@@ -3,18 +3,17 @@ Section: libs
 Priority: optional
 Maintainer: UBports Developers <developers@ubports.com>
 Build-Depends: cmake,
-               cmake-extras (>= 0.10),
-               debhelper (>= 9),
-               google-mock (>= 1.6.0+svn437),
-               libcgmanager-dev,
-               libcontent-hub-dev (>= 0.2),
+               cmake-extras (>= 1.5-4~),
+               debhelper-compat (= 12),
+               googletest (>= 1.6.0+svn437),
+#FIXME         libcontent-hub-dev (>= 0.2),
                libfontconfig1-dev,
                libgles2-mesa-dev,
                libglib2.0-dev,
                libgsettings-qt-dev,
+               libgtest-dev,
                liblttng-ust-dev,
                libmiral-dev (>= 1.2),
-               libmirclient-dev (>= 0.26.0),
                libmircommon-dev (>= 0.26.0),
                libmirserver-dev (>= 0.26.0),
                libmtdev-dev,
@@ -22,9 +21,9 @@ Build-Depends: cmake,
                libqt5sensors5-dev,
                libqtdbusmock1-dev (>= 0.2),
                libqtdbustest1-dev (>= 0.2),
-               liblomiri-app-launch0-dev,
+               liblomiri-app-launch-dev,
                libudev-dev,
-               liblomiri-api-dev (>= 8.7),
+               liblomiri-api-dev (>= 0.1.1),
                liblomiri-url-dispatcher-dev,
                libxkbcommon-dev,
                libxrender-dev,
@@ -33,19 +32,19 @@ Build-Depends: cmake,
                pkg-config,
 # lttng-gen-ts needs python3, but doesn't depend on it itself: bug 1359147
                python3:any,
-               qt5-default,
                qtbase5-dev,
                qtbase5-private-dev,
                qtdeclarative5-dev,
                qtdeclarative5-private-dev,
                quilt,
-               valgrind,
+               valgrind [amd64 arm64 armhf i386 mips64el mipsel ppc64el s390x powerpc ppc64 x32],
 # libmirserver-dev should have brought this dep. Bug lp:1617435
                uuid-dev,
 # mirtest pkgconfig requires these, but doesn't have a deb dependency. Bug lp:1633537
                libboost-filesystem-dev,
                libboost-system-dev,
-Standards-Version: 3.9.5
+Standards-Version: 4.5.1
+Rules-Requires-Root: no
 Homepage: https://github.com/ubports/qtmir
 
 Package: qtmir-android
@@ -66,7 +65,7 @@ Description: Qt platform abstraction (QPA) plugin for a Mir server (mobile)
  This variant of the package is for Android-based phones and tablets.
 
 Package: qtmir-desktop
-Architecture: any
+Architecture: linux-any
 Multi-Arch: same
 Conflicts: qtmir-android,
            qtubuntu-android,
@@ -84,7 +83,7 @@ Description: Qt platform abstraction (QPA) plugin for a Mir server (desktop)
 
 Package: libqtmirserver-dev
 Section: libdevel
-Architecture: any
+Architecture: linux-any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
 Depends: qtmir-desktop (= ${binary:Version}) | qtmir-android (= ${binary:Version}),
@@ -98,7 +97,6 @@ Description: Developer files for QtMir server API
  This package contains the library headers for developers.
 
 Package: libqtmirserver1
-Section: libs
 Architecture: linux-any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
@@ -111,23 +109,28 @@ Description: QtMir server API shared library
  .
  Contains the shared library containing QtMir server API.
 
-Package: qtdeclarative5-qtmir-plugin
-Architecture: any
+Package: qml-module-qtmir
+Architecture: linux-any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends},
-Depends: qtmir-desktop (= ${source:Version}) | qtmir-android (= ${source:Version}),
+Depends: qtmir-desktop (= ${binary:Version}) | qtmir-android (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends},
 Provides: lomiri-application-impl,
           lomiri-application-impl-27,
-Description: Qt plugin for Unity specific Mir APIs
+Description: Qt/QML module for Lomiri specific Mir APIs
+ QtMir is a set of Qt5 components to enable one to write a Mir server with Qt.
+ It contains a QPA (Qt Platform Abstraction) plugin which creates and manages
+ a Mir server. It also exposes some internal Mir functionality.
+ .
  QtMir provides Qt/QML bindings for Mir features that are exposed through the
  qtmir-desktop or qtmir-android QPA plugin such as Application management
  (start/stop/suspend/resume) and surface management.
 
 Package: qtmir-tests
-Architecture: any
-Multi-Arch: same
+Section: libdevel
+Architecture: linux-any
+Multi-Arch: foreign
 Pre-Depends: ${misc:Pre-Depends},
 Depends: autopilot-qt5,
          littler,
@@ -137,10 +140,14 @@ Depends: autopilot-qt5,
          python3-babeltrace,
          python3-evdev,
          python3-mir-perf-framework,
-         qtdeclarative5-qtmir-plugin,
-         qtmir-desktop (= ${source:Version}) | qtmir-android (= ${source:Version}),
+         qml-module-qtmir,
+         qtmir-desktop (= ${binary:Version}) | qtmir-android (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends},
 Description: QtMir tests and demos
+ QtMir is a set of Qt5 components to enable one to write a Mir server with Qt.
+ It contains a QPA (Qt Platform Abstraction) plugin which creates and manages
+ a Mir server. It also exposes some internal Mir functionality.
+ .
  This package provides benchmark tests and a simple shell and client using the
  QtMir QPA.
