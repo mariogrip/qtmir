@@ -99,8 +99,6 @@ target_link_libraries(
     ${LTTNG_LDFLAGS}
     ${GSETTINGS_QT_LDFLAGS}
 
-    ${GL_LIBRARIES}
-
     Qt5::Core
     Qt5::DBus
     Qt5::Qml
