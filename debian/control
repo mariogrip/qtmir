@@ -47,39 +47,37 @@ Standards-Version: 4.5.1
 Rules-Requires-Root: no
 Homepage: https://github.com/ubports/qtmir
 
-Package: qtmir-android
-Architecture: armhf arm64
+Package: qtmir
+Architecture: linux-any
 Multi-Arch: same
-Conflicts: qtmir-desktop,
-           qtubuntu-desktop,
-Replaces: qtmir-desktop,
-          qtubuntu-desktop,
-Provides: qtmir,
+Breaks: qtmir-android (<< 0.7.0~),
+        qtmir-desktop (<< 0.7.0~),
+Replaces: qtmir-android (<< 0.7.0~),
+          qtmir-desktop (<< 0.7.0~),
 Depends: ${misc:Depends},
          ${shlibs:Depends},
-Description: Qt platform abstraction (QPA) plugin for a Mir server (mobile)
+Description: Qt platform abstraction (QPA) plugin for a Mir server
  QtMir is a set of Qt5 components to enable one to write a Mir server with Qt.
  It contains a QPA (Qt Platform Abstraction) plugin which creates and manages
  a Mir server. It also exposes some internal Mir functionality.
- .
- This variant of the package is for Android-based phones and tablets.
+
+Package: qtmir-android
+Architecture: armhf arm64
+Multi-Arch: same
+Depends: ${misc:Depends},
+Priority: optional
+Section: oldlibs
+Description: transitional package
+  This is a transitional package. It can safely be removed.
 
 Package: qtmir-desktop
 Architecture: linux-any
 Multi-Arch: same
-Conflicts: qtmir-android,
-           qtubuntu-android,
-Replaces: qtmir-android,
-          qtubuntu-android,
-Provides: qtmir,
 Depends: ${misc:Depends},
-         ${shlibs:Depends},
-Description: Qt platform abstraction (QPA) plugin for a Mir server (desktop)
- QtMir is a set of Qt5 components to enable one to write a Mir server with Qt.
- It contains a QPA (Qt Platform Abstraction) plugin which creates and manages
- a Mir server. It also exposes some internal Mir functionality.
- .
- This variant of the package is for GNU-based desktops.
+Priority: optional
+Section: oldlibs
+Description: transitional package
+  This is a transitional package. It can safely be removed.
 
 Package: libqtmirserver-dev
 Section: libdevel
@@ -141,7 +139,7 @@ Depends: littler,
          python3-mir-perf-framework,
          qml-module-lomiri-components,
          qml-module-qtmir,
-         qtmir-desktop (= ${binary:Version}) | qtmir-android (= ${binary:Version}),
+         qtmir (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends},
 Recommends: autopilot-qt5,
