@@ -132,8 +132,7 @@ Section: libdevel
 Architecture: linux-any
 Multi-Arch: foreign
 Pre-Depends: ${misc:Pre-Depends},
-Depends: autopilot-qt5,
-         littler,
+Depends: littler,
          lttng-tools,
          mir-test-tools,
          python3-autopilot,
@@ -144,6 +143,7 @@ Depends: autopilot-qt5,
          qtmir-desktop (= ${binary:Version}) | qtmir-android (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends},
+Recommends: autopilot-qt5,
 Description: QtMir tests and demos
  QtMir is a set of Qt5 components to enable one to write a Mir server with Qt.
  It contains a QPA (Qt Platform Abstraction) plugin which creates and manages
