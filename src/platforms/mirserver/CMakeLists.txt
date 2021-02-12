@@ -179,6 +179,7 @@ target_link_libraries(qtmirserver
         Qt5::Gui
 
     PRIVATE
+        Threads::Threads
         ${URL_DISPATCHER_LDFLAGS}
         ${EGL_LDFLAGS}
         ${GL_LIBRARIES}
