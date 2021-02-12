@@ -181,12 +181,12 @@ int main(int argc, const char *argv[])
 
     setenv("QT_QPA_PLATFORM_PLUGIN_PATH", qPrintable(::qpaPluginDirectory()), 1 /* overwrite */);
 
-    qtmir::MirServerApplication::setApplicationName("api-demo-shell");
+    qtmir::MirServerApplication::setApplicationName("qtmir-demo-shell");
     qtmir::MirServerApplication *application;
 
     application = new qtmir::MirServerApplication(argc, (char**)argv, { displayConfig, sessionAuth, wmPolicy, displayStorage });
     auto qmlEngine = new QQmlApplicationEngine(application);
-    qmlEngine->setBaseUrl(QUrl::fromLocalFile(::qmlDirectory() + "api-demo-shell"));
+    qmlEngine->setBaseUrl(QUrl::fromLocalFile(::qmlDirectory() + "qtmir-demo-shell"));
     qmlEngine->addImportPath(::qmlPluginDirectory());
     QObject::connect(qmlEngine, &QQmlEngine::quit, application, &QGuiApplication::quit);
 
@@ -201,7 +201,7 @@ int main(int argc, const char *argv[])
     });
     qmlRegisterUncreatableType<qtmir::ScreenMode>("QtMir", 0, 1, "ScreenMode", "ScreenMode is not creatable.");
 
-    qmlEngine->load(::qmlDirectory() + "qml-demo-shell/qml-demo-shell.qml");
+    qmlEngine->load(::qmlDirectory() + "qtmir-demo-shell/qml-demo-shell.qml");
 
     int result = application->exec();
     delete application;

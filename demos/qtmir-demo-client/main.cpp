@@ -49,7 +49,7 @@ int main(int argc, char **argv)
         }
     }
 
-    QGuiApplication::setApplicationName("qml-demo-client");
+    QGuiApplication::setApplicationName("qtmir-demo-client");
     QGuiApplication *application;
 
     application = new QGuiApplication(argc, (char**)argv);
@@ -58,7 +58,7 @@ int main(int argc, char **argv)
     view->setColor("black");
     view->setTitle("Demo Client");
 
-    QUrl source(::qmlDirectory() + "qml-demo-client/qml-demo-client.qml");
+    QUrl source(::qmlDirectory() + "qtmir-demo-client/qml-demo-client.qml");
 
     view->setSource(source);
     QObject::connect(view->engine(), SIGNAL(quit()), application, SLOT(quit()));
