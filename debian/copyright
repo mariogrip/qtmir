@@ -1,22 +1,402 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: qtmir
+Upstream-Contact: Marius Gripsgard <marius@ubports.com>
+Source: https://gitlab.com/ubports/core/qtmir/
 
-Files: *
-Copyright: 2013-2015 Canonical Ltd.
+Files: demos/qml-demo-shell/screens.cpp
+ demos/qml-demo-shell/screens.h
+ demos/qml-demo-shell/screenwindow.cpp
+ demos/qml-demo-shell/screenwindow.h
+ include/qtmir/displayconfigurationpolicy.h
+ include/qtmir/displayconfigurationstorage.h
+ include/qtmir/mirserverapplication.h
+ include/qtmir/screen.h
+ include/qtmir/screens.h
+ include/qtmir/sessionauthorizer.h
+ include/qtmir/windowmanagementpolicy.h
+ src/common/abstractdbusservicemonitor.cpp
+ src/common/abstractdbusservicemonitor.h
+ src/common/appnotifier.h
+ src/common/debughelpers.cpp
+ src/common/debughelpers.h
+ src/common/mirqtconversion.h
+ src/common/timestamp.h
+ src/common/windowcontrollerinterface.h
+ src/common/windowmodelnotifier.h
+ src/common/workspacecontrollerinterface.h
+ src/modules/Unity/Application/application.cpp
+ src/modules/Unity/Application/application.h
+ src/modules/Unity/Application/application_manager.h
+ src/modules/Unity/Application/applicationinfo.h
+ src/modules/Unity/Application/cgmanager.cpp
+ src/modules/Unity/Application/cgmanager.h
+ src/modules/Unity/Application/compositortextureprovider.cpp
+ src/modules/Unity/Application/compositortextureprovider.h
+ src/modules/Unity/Application/dbusfocusinfo.cpp
+ src/modules/Unity/Application/dbusfocusinfo.h
+ src/modules/Unity/Application/gscopedpointer.h
+ src/modules/Unity/Application/mirbuffersgtexture.cpp
+ src/modules/Unity/Application/mirbuffersgtexture.h
+ src/modules/Unity/Application/mirsurface.h
+ src/modules/Unity/Application/mirsurfaceinterface.h
+ src/modules/Unity/Application/mirsurfaceitem.h
+ src/modules/Unity/Application/objectlistmodel.h
+ src/modules/Unity/Application/plugin.cpp
+ src/modules/Unity/Application/proc_info.cpp
+ src/modules/Unity/Application/proc_info.h
+ src/modules/Unity/Application/session.cpp
+ src/modules/Unity/Application/session.h
+ src/modules/Unity/Application/session_interface.h
+ src/modules/Unity/Application/sessionmap_interface.h
+ src/modules/Unity/Application/sessionmodel.h
+ src/modules/Unity/Application/settings.cpp
+ src/modules/Unity/Application/settings.h
+ src/modules/Unity/Application/settings_interface.h
+ src/modules/Unity/Application/sharedwakelock.cpp
+ src/modules/Unity/Application/sharedwakelock.h
+ src/modules/Unity/Application/surfacemanager.cpp
+ src/modules/Unity/Application/surfacemanager.h
+ src/modules/Unity/Application/taskcontroller.cpp
+ src/modules/Unity/Application/taskcontroller.h
+ src/modules/Unity/Application/upstart/applicationinfo.cpp
+ src/modules/Unity/Application/upstart/applicationinfo.h
+ src/modules/Unity/Application/upstart/taskcontroller.cpp
+ src/modules/Unity/Application/upstart/taskcontroller.h
+ src/modules/Unity/Application/windowmodel.cpp
+ src/modules/Unity/Application/windowmodel.h
+ src/platforms/mirserver/clipboard.cpp
+ src/platforms/mirserver/clipboard.h
+ src/platforms/mirserver/cursor.cpp
+ src/platforms/mirserver/cursor.h
+ src/platforms/mirserver/displayconfigurationpolicy.cpp
+ src/platforms/mirserver/displayconfigurationstorage.cpp
+ src/platforms/mirserver/eventbuilder.cpp
+ src/platforms/mirserver/eventbuilder.h
+ src/platforms/mirserver/initialsurfacesizes.cpp
+ src/platforms/mirserver/initialsurfacesizes.h
+ src/platforms/mirserver/inputdeviceobserver.cpp
+ src/platforms/mirserver/inputdeviceobserver.h
+ src/platforms/mirserver/logging.cpp
+ src/platforms/mirserver/logging.h
+ src/platforms/mirserver/mircursorimages.cpp
+ src/platforms/mirserver/mircursorimages.h
+ src/platforms/mirserver/mirdisplayconfigurationobserver.cpp
+ src/platforms/mirserver/mirdisplayconfigurationobserver.h
+ src/platforms/mirserver/mirglconfig.h
+ src/platforms/mirserver/miropenglcontext.cpp
+ src/platforms/mirserver/miropenglcontext.h
+ src/platforms/mirserver/mirserverapplication.cpp
+ src/platforms/mirserver/mirserverintegration.cpp
+ src/platforms/mirserver/mirserverintegration.h
+ src/platforms/mirserver/mirsingleton.cpp
+ src/platforms/mirserver/mirsingleton.h
+ src/platforms/mirserver/namedcursor.h
+ src/platforms/mirserver/nativeinterface.cpp
+ src/platforms/mirserver/nativeinterface.h
+ src/platforms/mirserver/offscreensurface.cpp
+ src/platforms/mirserver/offscreensurface.h
+ src/platforms/mirserver/platformscreen.cpp
+ src/platforms/mirserver/platformscreen.h
+ src/platforms/mirserver/plugin.cpp
+ src/platforms/mirserver/plugin.h
+ src/platforms/mirserver/promptsessionlistener.cpp
+ src/platforms/mirserver/promptsessionlistener.h
+ src/platforms/mirserver/qmirserver.cpp
+ src/platforms/mirserver/qmirserver.h
+ src/platforms/mirserver/qmirserver_p.cpp
+ src/platforms/mirserver/qmirserver_p.h
+ src/platforms/mirserver/qtcompositor.cpp
+ src/platforms/mirserver/qtcompositor.h
+ src/platforms/mirserver/qteventfeeder.h
+ src/platforms/mirserver/screenadaptor.cpp
+ src/platforms/mirserver/screenadaptor.h
+ src/platforms/mirserver/screenadaptormodel.cpp
+ src/platforms/mirserver/screenadaptormodel.h
+ src/platforms/mirserver/screenplatformwindow.cpp
+ src/platforms/mirserver/screenplatformwindow.h
+ src/platforms/mirserver/screenscontroller.cpp
+ src/platforms/mirserver/screenscontroller.h
+ src/platforms/mirserver/screensmodel.cpp
+ src/platforms/mirserver/screensmodel.h
+ src/platforms/mirserver/services.cpp
+ src/platforms/mirserver/services.h
+ src/platforms/mirserver/shelluuid.cpp
+ src/platforms/mirserver/shelluuid.h
+ src/platforms/mirserver/surfaceobserver.cpp
+ src/platforms/mirserver/surfaceobserver.h
+ src/platforms/mirserver/ubuntutheme.h
+ src/platforms/mirserver/windowcontroller.cpp
+ src/platforms/mirserver/windowcontroller.h
+ src/platforms/mirserver/windowmodelnotifier.cpp
+ src/platforms/mirserver/workspacecontroller.cpp
+ src/platforms/mirserver/workspacecontroller.h
+ src/platforms/mirserver/wrappedsessionauthorizer.h
+ src/platforms/mirserver/wrappedwindowmanagementpolicy.cpp
+ src/platforms/mirserver/wrappedwindowmanagementpolicy.h
+ tests/framework/fake_application_info.cpp
+ tests/framework/fake_application_info.h
+ tests/framework/fake_displayconfigurationoutput.h
+ tests/framework/fake_mirsurface.cpp
+ tests/framework/fake_mirsurface.h
+ tests/framework/fake_session.cpp
+ tests/framework/fake_session.h
+ tests/framework/mock_application_info.cpp
+ tests/framework/mock_application_info.h
+ tests/framework/mock_gl_display_buffer.h
+ tests/framework/mock_main_loop.cpp
+ tests/framework/mock_main_loop.h
+ tests/framework/mock_mir_session.cpp
+ tests/framework/mock_mir_session.h
+ tests/framework/mock_persistent_surface_store.cpp
+ tests/framework/mock_proc_info.cpp
+ tests/framework/mock_proc_info.h
+ tests/framework/mock_prompt_session.cpp
+ tests/framework/mock_prompt_session.h
+ tests/framework/mock_prompt_session_manager.cpp
+ tests/framework/mock_prompt_session_manager.h
+ tests/framework/mock_renderable.cpp
+ tests/framework/mock_renderable.h
+ tests/framework/mock_session.cpp
+ tests/framework/mock_session.h
+ tests/framework/mock_sessionmap.h
+ tests/framework/mock_settings.cpp
+ tests/framework/mock_settings.h
+ tests/framework/mock_shared_wakelock.cpp
+ tests/framework/mock_shared_wakelock.h
+ tests/framework/mock_shell.h
+ tests/framework/mock_surface.cpp
+ tests/framework/mock_surface.h
+ tests/framework/mock_task_controller.cpp
+ tests/framework/mock_task_controller.h
+ tests/framework/mock_window_controller.h
+ tests/framework/qtmir_test.cpp
+ tests/framework/qtmir_test.h
+ tests/framework/stub_buffer.h
+ tests/framework/stub_windowcontroller.h
+ tests/mirserver/EventBuilder/eventbuilder_test.cpp
+ tests/mirserver/QtEventFeeder/mock_qtwindowsystem.h
+ tests/mirserver/QtEventFeeder/qteventfeeder_test.cpp
+ tests/mirserver/Screen/screen_test.cpp
+ tests/mirserver/ScreensModel/screensmodel_test.cpp
+ tests/mirserver/ScreensModel/stub_display.h
+ tests/mirserver/ScreensModel/stub_displayconfigurationcontroller.h
+ tests/mirserver/ScreensModel/stub_screen.h
+ tests/mirserver/ScreensModel/testable_screensmodel.h
+ tests/mirserver/miral/edid_test.cpp
+ tests/modules/Application/application_test.cpp
+ tests/modules/ApplicationManager/application_manager_test.cpp
+ tests/modules/General/objectlistmodel_test.cpp
+ tests/modules/General/timestamp_test.cpp
+ tests/modules/Session/session_test.cpp
+ tests/modules/Session/taskcontroller_test.cpp
+ tests/modules/SharedWakelock/sharedwakelock_test.cpp
+ tests/modules/SurfaceManager/surface_manager_test.cpp
+ tests/modules/WindowManager/mirsurface_test.cpp
+ tests/modules/WindowManager/mirsurfaceitem_test.cpp
+ tests/modules/WindowManager/windowmodel_test.cpp
+Copyright: 2011-2014, Canonical, Ltd.
+  2011-2015, Canonical, Ltd.
+  2013-2014, Canonical, Ltd.
+  2013-2015, Canonical, Ltd.
+  2013-2016, Canonical, Ltd.
+  2013-2017, Canonical, Ltd.
+  2014, 2016, Canonical, Ltd.
+  2014, Canonical, Ltd.
+  2014-2015, Canonical, Ltd.
+  2014-2016, Canonical, Ltd.
+  2014-2017, Canonical, Ltd.
+  2015, 2017, Canonical, Ltd.
+  2015, Canonical, Ltd.
+  2015-2016, Canonical, Ltd.
+  2015-2017, Canonical, Ltd.
+  2016, Canonical, Ltd.
+  2016-2017, Canonical, Ltd.
+  2017, Canonical, Ltd.
 License: LGPL-3
 
-Files: debian/*
-Copyright: 2013-2015 Canonical Ltd.
+Files: CMakeLists.txt
+ Jenkinsfile
+ NEWS
+ README
+ benchmarks/CMakeLists.txt
+ benchmarks/README
+ benchmarks/touch_event_latency.R
+ cmake/modules/FindGLESv2.cmake
+ cmake/modules/QmlTest.cmake
+ cmake/modules/UseLttngGenTp.cmake
+ cmake/modules/autopilot.cmake
+ demos/CMakeLists.txt
+ demos/qml-demo-client/CMakeLists.txt
+ demos/qml-demo-client/MovingRect.qml
+ demos/qml-demo-client/qml-demo-client.qml
+ demos/qml-demo-client/qtmir-demo-client.desktop.in
+ demos/qml-demo-shell/Button.qml
+ demos/qml-demo-shell/CMakeLists.txt
+ demos/qml-demo-shell/ResizeArea.qml
+ demos/qml-demo-shell/ScreenConfiguration.qml
+ demos/qml-demo-shell/Shell.qml
+ demos/qml-demo-shell/TitleBar.qml
+ demos/qml-demo-shell/UnityLogo.png
+ demos/qml-demo-shell/Window.qml
+ demos/qml-demo-shell/WindowBufferSized.qml
+ demos/qml-demo-shell/WindowModelDebugView.qml
+ demos/qml-demo-shell/qml-demo-shell.qml
+ demos/qml-demo-shell/qml-demo-shell.qmlproject
+ include/qtmir/miral/display_id.h
+ include/qtmir/qtmir.h
+ src/CMakeLists.txt
+ src/common/timestamp.cpp
+ src/common/timestamp_impl.h
+ src/modules/CMakeLists.txt
+ src/modules/Unity/Application/CMakeLists.txt
+ src/modules/Unity/Application/com.canonical.qtmir.gschema.xml
+ src/modules/Unity/Application/qmldir
+ src/modules/Unity/Application/tracepoints.tp
+ src/modules/Unity/CMakeLists.txt
+ src/platforms/CMakeLists.txt
+ src/platforms/mirserver/CMakeLists.txt
+ src/platforms/mirserver/miral/CMakeLists.txt
+ src/platforms/mirserver/mirserver.json
+ src/platforms/mirserver/qtmir.cpp
+ src/platforms/mirserver/qtmirserver.pc.in
+ src/platforms/mirserver/tracepoints.tp
+ tests/CMakeLists.txt
+ tests/check-requires-provides.sh
+ tests/convert-to-gles.sh
+ tests/framework/CMakeLists.txt
+ tests/framework/mock_persistent_surface_store.h
+ tests/mirserver/CMakeLists.txt
+ tests/mirserver/EventBuilder/CMakeLists.txt
+ tests/mirserver/QtEventFeeder/CMakeLists.txt
+ tests/mirserver/Screen/CMakeLists.txt
+ tests/mirserver/ScreensModel/CMakeLists.txt
+ tests/mirserver/miral/CMakeLists.txt
+ tests/modules/Application/CMakeLists.txt
+ tests/modules/ApplicationManager/CMakeLists.txt
+ tests/modules/CMakeLists.txt
+ tests/modules/General/CMakeLists.txt
+ tests/modules/Session/CMakeLists.txt
+ tests/modules/SharedWakelock/CMakeLists.txt
+ tests/modules/SurfaceManager/CMakeLists.txt
+ tests/modules/WindowManager/CMakeLists.txt
+Copyright: 2013-2018, Canonical Ltd.
+  2019-2020, UBports
+License: LGPL-3
+Comment:
+ No copyright/license header in these files.
+ .
+ Assuming same license as for the majority of code files,
+ assuming same copyright holders.
+
+Files: include/qtmir/miral/display_configuration_policy.h
+ include/qtmir/miral/display_configuration_storage.h
+ include/qtmir/miral/edid.h
+ src/platforms/mirserver/eventdispatch.cpp
+ src/platforms/mirserver/eventdispatch.h
+ src/platforms/mirserver/miral/display_configuration_policy.cpp
+ src/platforms/mirserver/miral/edid.cpp
+ src/platforms/mirserver/miral/mirbuffer.cpp
+ src/platforms/mirserver/miral/mirbuffer.h
+ src/platforms/mirserver/miral/persist_display_config.cpp
+ src/platforms/mirserver/miral/persist_display_config.h
+ src/platforms/mirserver/mirserverhooks.cpp
+ src/platforms/mirserver/mirserverhooks.h
+ src/platforms/mirserver/openglcontextfactory.cpp
+ src/platforms/mirserver/openglcontextfactory.h
+ src/platforms/mirserver/promptsession.h
+ src/platforms/mirserver/promptsessionmanager.cpp
+ src/platforms/mirserver/promptsessionmanager.h
+ src/platforms/mirserver/setqtcompositor.cpp
+ src/platforms/mirserver/setqtcompositor.h
+ tests/framework/fake_surface.h
+ tests/framework/stub_scene_surface.h
+Copyright: 2014, 2016, Canonical Ltd.
+  2016, Canonical Ltd.
+  2016-2017, Canonical Ltd.
+  2017, Canonical Ltd.
 License: GPL-3
 
-Files: tests/*
-Copyright: 2013-2015 Canonical Ltd.
+Files: demos/paths.h.in
+ demos/qml-demo-client/main.cpp
+ demos/qml-demo-shell/main.cpp
+ demos/qml-demo-shell/pointerposition.cpp
+ demos/qml-demo-shell/pointerposition.h
+ src/modules/Unity/Application/mirsurfacelistmodel.cpp
+ src/modules/Unity/Application/mirsurfacelistmodel.h
+ src/modules/Unity/Application/timer.cpp
+ src/modules/Unity/Application/timer.h
+Copyright: 2012-2015, Canonical, Ltd.
+  2015, Canonical, Ltd.
+  2016, Canonical, Ltd.
 License: GPL-3
+
+Files: benchmarks/common.py
+ benchmarks/report_types.py
+ benchmarks/touch_event_latency.py
+ include/qtmir/types.h
+Copyright: 2015, Canonical Ltd.
+  2016, Canonical Ltd.
+License: LGPL-3
+
+Files: src/modules/Unity/Application/application_manager.cpp
+ src/modules/Unity/Application/mirsurfaceitem.cpp
+ src/platforms/mirserver/qteventfeeder.cpp
+ src/platforms/mirserver/wrappedsessionauthorizer.cpp
+Copyright: 2013-2016, Canonical, Ltd.
+  2013-2017, Canonical, Ltd.
+  2016, Canonical, Ltd.
+License: LGPL-3
+Comment: GENERATED FILE
+
+Files: cmake/modules/FindQt5EventDispatcherSupport.cmake
+ cmake/modules/FindQt5FontDatabaseSupport.cmake
+ cmake/modules/FindQt5ThemeSupport.cmake
+Copyright: 2014, Alex Merry <alex.merry@kde.org>
+  2014, Martin Gräßlin <mgraesslin@kde.org>
+  2016, Takahiro Hashimoto <kenya888@gmail.com>
+License: BSD-3-clause
+
+Files: src/platforms/mirserver/orientationsensor.cpp
+ src/platforms/mirserver/orientationsensor.h
+Copyright: 2019, UBports
+License: LGPL-3
+
+Files: cmake/modules/FindQt5EglSupport.cmake
+ cmake/modules/FindQt5ServiceSupport.cmake
+Copyright: 2014, Alex Merry <alex.merry@kde.org>
+  2014, Martin Gräßlin <mgraesslin@kde.org>
+  2016, Takahiro Hashimoto <kenya888@gmail.com>
+  2017, Marius Gripsgard <marius@ubports.com>
+License: BSD-3-clause
+
+Files: tests/framework/gmock_fixes.h
+Copyright: 2012, Canonical Ltd.
+           2007, Google Inc.
+License: BSD-3-clause
+
+Files: tests/include/check_gtest_version.h
+Copyright: 2018, Canonical Ltd.
+License: GPL-2
+
+Files: src/modules/Unity/Application/timesource.cpp
+       src/modules/Unity/Application/timesource.h
+Copyright: 2015, Canonical Ltd.
+License: LGPL-2.1
+
+Files: src/modules/Unity/Application/mirsurface.cpp
+Copyright: 2015-2017, Canonical, Ltd.
+  2020, UBports Foundation
+License: LGPL-3
 
 Files: cmake/modules/FindQt5PlatformSupport.cmake
-Copyright: 2014 Alex Merry <alex.merry@kde.org>
-           2014 Martin Gräßlin <mgraesslin@kde.org>
+Copyright: 2014, Alex Merry <alex.merry@kde.org>
+  2014, Martin Gräßlin <mgraesslin@kde.org>
 License: BSD-3-clause
+
+Files: debian/*
+Copyright: 2013-2017, Canonical Ltd.
+           2020, Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
+License: GPL-2 or GPL-3 or LGPL-2.1 or LGPL-3 or BSD-3-clause
 
 License: LGPL-3
  This package is free software; you can redistribute it and/or
@@ -35,6 +415,40 @@ License: LGPL-3
  .
  On Debian systems, the complete text of the GNU Lesser General
  Public License can be found in `/usr/share/common-licenses/LGPL-3'.
+
+License: LGPL-2.1
+ This package is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation, version 2.1 of
+ the License.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+ .
+ You should have received a copy of the GNU Lesser General Public
+ License along with this package; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+ .
+ On Debian systems, the complete text of the GNU Lesser General
+ Public License can be found in `/usr/share/common-licenses/LGPL-2.1'.
+
+License: GPL-2
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, version 2 of the License.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the full text of the GNU General Public License
+ version 2 can be found in the file /usr/share/common-licenses/GPL-2.
 
 License: GPL-3
  This program is free software: you can redistribute it and/or modify
@@ -75,4 +489,3 @@ License: BSD-3-clause
  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
