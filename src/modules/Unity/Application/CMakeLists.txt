@@ -19,7 +19,6 @@ include_directories(
     ${UBUNTU_PLATFORM_API_INCLUDE_DIRS}
     ${LOMIRI_APP_LAUNCH_INCLUDE_DIRS}
     ${GSETTINGS_QT_INCLUDE_DIRS}
-    ${CGMANAGER_INCLUDE_DIRS}
 
     ${LTTNG_INCLUDE_DIRS}
     ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
@@ -42,7 +41,6 @@ set(QMLMIRPLUGIN_SRC
     application_manager.cpp
     application.cpp
     compositortextureprovider.cpp
-    cgmanager.cpp
     ../../../common/abstractdbusservicemonitor.cpp
     ../../../common/debughelpers.cpp
     dbusfocusinfo.cpp
