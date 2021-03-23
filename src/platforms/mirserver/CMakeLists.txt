@@ -183,7 +183,6 @@ target_link_libraries(qtmirserver
         Threads::Threads
         ${URL_DISPATCHER_LDFLAGS}
         ${EGL_LDFLAGS}
-        ${GL_LIBRARIES}
         ${LTTNG_LIBRARIES}
         ${GIO_LDFLAGS}
         ${FONTCONFIG_LDFLAGS}
@@ -240,7 +239,6 @@ PRIVATE
     ${MIRSERVER_LDFLAGS}
     ${URL_DISPATCHER_LDFLAGS}
     ${EGL_LDFLAGS}
-    ${GL_LIBRARIES}
     ${LTTNG_LIBRARIES}
     ${GIO_LDFLAGS}
     ${FONTCONFIG_LDFLAGS}

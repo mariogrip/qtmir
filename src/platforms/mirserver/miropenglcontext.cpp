@@ -82,7 +82,6 @@ MirOpenGLContext::MirOpenGLContext(
     formatCopy.setRenderableType(QSurfaceFormat::OpenGLES);
 
     m_format = q_glFormatFromConfig(eglDisplay, eglConfig, formatCopy);
-    mirContext->release_current(); // Need to release as it doesn't happen when GLContext goes out of scope
 
     // FIXME: the temporary gl context created by Mir does not have the attributes we specified
     // in the GLConfig, so need to set explicitly for now
@@ -91,15 +90,19 @@ MirOpenGLContext::MirOpenGLContext(
     m_format.setSamples(-1);
 
 #ifdef QGL_DEBUG
-    const char* string = (const char*) glGetString(GL_VENDOR);
+    // Query the glGetString function pointer manually to avoid linking to libGL or libGLES.
+    const GLubyte *(*qtmir_glGetString) (GLenum name) =
+        (const GLubyte *(*) (GLenum name)) eglGetProcAddress("glGetString");
+
+    const char* string = (const char*) qtmir_glGetString(GL_VENDOR);
     qDebug() << "OpenGL ES vendor: " << qPrintable(string);
-    string = (const char*) glGetString(GL_RENDERER);
+    string = (const char*) qtmir_glGetString(GL_RENDERER);
     qDebug() << "OpenGL ES renderer"  << qPrintable(string);
-    string = (const char*) glGetString(GL_VERSION);
+    string = (const char*) qtmir_glGetString(GL_VERSION);
     qDebug() << "OpenGL ES version" << qPrintable(string);
-    string = (const char*) glGetString(GL_SHADING_LANGUAGE_VERSION);
+    string = (const char*) qtmir_glGetString(GL_SHADING_LANGUAGE_VERSION);
     qDebug() << "OpenGL ES Shading Language version:" << qPrintable(string);
-    string = (const char*) glGetString(GL_EXTENSIONS);
+    string = (const char*) qtmir_glGetString(GL_EXTENSIONS);
     qDebug() << "OpenGL ES extensions:" << qPrintable(string);
     q_printEglConfig(eglDisplay, eglConfig);
 
@@ -131,7 +134,10 @@ static bool needsFBOReadBackWorkaround()
     static bool needsWorkaround = false;
 
     if (Q_UNLIKELY(!set)) {
-        const char *rendererString = reinterpret_cast<const char *>(glGetString(GL_RENDERER));
+        // Query the glGetString function pointer manually to avoid linking to libGL or libGLES.
+        const GLubyte *(*qtmir_glGetString) (GLenum name) =
+            (const GLubyte *(*) (GLenum name)) eglGetProcAddress("glGetString");
+        const char *rendererString = reinterpret_cast<const char *>(qtmir_glGetString(GL_RENDERER));
         // Keep in sync with qtubuntu
         needsWorkaround = qstrncmp(rendererString, "Mali-400", 8) == 0
                           || qstrncmp(rendererString, "Mali-T7", 7) == 0

@@ -19,6 +19,9 @@
 // Mir
 #include <mir/geometry/size.h>
 
+// Qt
+#include <QtGui/QOpenGLFunctions>
+
 namespace mg = mir::geometry;
 
 MirBufferSGTexture::MirBufferSGTexture()
@@ -27,7 +30,8 @@ MirBufferSGTexture::MirBufferSGTexture()
     , m_height(0)
     , m_textureId(0)
 {
-    glGenTextures(1, &m_textureId);
+    auto f = QOpenGLContext::currentContext()->functions();
+    f->glGenTextures(1, &m_textureId);
 
     setFiltering(QSGTexture::Linear);
     setHorizontalWrapMode(QSGTexture::ClampToEdge);
@@ -37,7 +41,8 @@ MirBufferSGTexture::MirBufferSGTexture()
 MirBufferSGTexture::~MirBufferSGTexture()
 {
     if (m_textureId) {
-        glDeleteTextures(1, &m_textureId);
+        auto f = QOpenGLContext::currentContext()->functions();
+        f->glDeleteTextures(1, &m_textureId);
     }
 }
 
@@ -79,7 +84,10 @@ bool MirBufferSGTexture::hasAlphaChannel() const
 void MirBufferSGTexture::bind()
 {
     Q_ASSERT(hasBuffer());
-    glBindTexture(GL_TEXTURE_2D, m_textureId);
+
+    auto f = QOpenGLContext::currentContext()->functions();
+
+    f->glBindTexture(GL_TEXTURE_2D, m_textureId);
     updateBindOptions(true/* force */);
 
     m_mirBuffer.bind_to_texture();
@@ -87,5 +95,5 @@ void MirBufferSGTexture::bind()
 
     // Fix for lp:1583088 - For non-GL clients, Mir uploads the client pixel buffer to a GL texture.
     // But as it does so, it changes some GL state and neglects to restore it, which breaks Qt's rendering.
-    glPixelStorei(GL_UNPACK_ALIGNMENT, 4); // 4 is the default which Qt uses
+    f->glPixelStorei(GL_UNPACK_ALIGNMENT, 4); // 4 is the default which Qt uses
 }
