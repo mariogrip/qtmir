@@ -32,7 +32,7 @@ namespace miral
 struct DisplayConfigurationOptions
 {
     mir::optional_value<bool> used;
-    mir::optional_value<uint> clone_output_index;
+    mir::optional_value<unsigned int> clone_output_index;
     struct DisplayMode
     {
         mir::geometry::Size size;
