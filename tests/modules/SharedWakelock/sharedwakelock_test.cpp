@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <Unity/Application/sharedwakelock.h>
+#include <QtMir/Application/sharedwakelock.h>
 
 #include <libqtdbusmock/DBusMock.h>
 

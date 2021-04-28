@@ -17,7 +17,7 @@
 #ifndef MOCK_PROC_INFO_H
 #define MOCK_PROC_INFO_H
 
-#include <Unity/Application/proc_info.h>
+#include <QtMir/Application/proc_info.h>
 
 #include <gmock/gmock.h>
 

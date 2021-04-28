@@ -23,11 +23,11 @@
 
 #include <QSharedPointer>
 
-#include <Unity/Application/application.h>
-#include <Unity/Application/application_manager.h>
-#include <Unity/Application/session_interface.h>
-#include <Unity/Application/sharedwakelock.h>
-#include <Unity/Application/proc_info.h>
+#include <QtMir/Application/application.h>
+#include <QtMir/Application/application_manager.h>
+#include <QtMir/Application/session_interface.h>
+#include <QtMir/Application/sharedwakelock.h>
+#include <QtMir/Application/proc_info.h>
 #include "promptsessionmanager.h"
 
 #include "mock_proc_info.h"

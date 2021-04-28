@@ -40,7 +40,7 @@ TaskController::TaskController(QObject *parent)
     NativeInterface *nativeInterface = dynamic_cast<NativeInterface*>(QGuiApplication::platformNativeInterface());
 
     if (!nativeInterface) {
-        qFatal("ERROR: Unity.Application QML plugin requires use of the 'mirserver' QPA plugin");
+        qFatal("ERROR: QtMir.Application QML plugin requires use of the 'mirserver' QPA plugin");
     }
 
     m_promptSessionManager = nativeInterface->thePromptSessionManager();

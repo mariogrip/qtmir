@@ -18,8 +18,8 @@
 #include <QSignalSpy>
 
 // the test subject
-#include <Unity/Application/surfacemanager.h>
-#include <Unity/Application/mirsurface.h>
+#include <QtMir/Application/surfacemanager.h>
+#include <QtMir/Application/mirsurface.h>
 
 // miral
 #include <miral/window.h>

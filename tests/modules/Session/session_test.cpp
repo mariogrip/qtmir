@@ -18,8 +18,8 @@
 #include <fake_mirsurface.h>
 
 #include "promptsession.h"
-#include <Unity/Application/application.h>
-#include <Unity/Application/session.h>
+#include <QtMir/Application/application.h>
+#include <QtMir/Application/session.h>
 
 #include <QSignalSpy>
 

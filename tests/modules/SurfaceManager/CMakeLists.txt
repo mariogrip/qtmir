@@ -25,7 +25,7 @@ add_dependencies(surfacemanager_test qtmir-test-framework-static)
 target_link_libraries(
   surfacemanager_test
 
-  unityapplicationplugin
+  qtmirapplicationplugin
 
   Qt5::Test
 

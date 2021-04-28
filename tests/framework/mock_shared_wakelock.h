@@ -17,7 +17,7 @@
 #ifndef MOCK_SHARED_WAKELOCK_H
 #define MOCK_SHARED_WAKELOCK_H
 
-#include <Unity/Application/sharedwakelock.h>
+#include <QtMir/Application/sharedwakelock.h>
 
 #include <gmock/gmock.h>
 

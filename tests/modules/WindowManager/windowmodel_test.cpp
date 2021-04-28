@@ -22,8 +22,8 @@
 
 #include "mirqtconversion.h"
 #include "windowmodelnotifier.h"
-#include "Unity/Application/mirsurface.h"
-#include "Unity/Application/windowmodel.h"
+#include "QtMir/Application/mirsurface.h"
+#include "QtMir/Application/windowmodel.h"
 
 #include <mir/test/doubles/stub_surface.h>
 #include <mir/test/doubles/stub_session.h>

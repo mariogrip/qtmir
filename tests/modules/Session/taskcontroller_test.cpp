@@ -19,7 +19,7 @@
 #include <QSignalSpy>
 
 #include "promptsession.h"
-#include <Unity/Application/session.h>
+#include <QtMir/Application/session.h>
 
 #include "qtmir_test.h"
 

@@ -25,8 +25,8 @@
 #include <mock_application_info.h>
 #include <mock_session.h>
 
-#include <Unity/Application/session.h>
-#include <Unity/Application/timesource.h>
+#include <QtMir/Application/session.h>
+#include <QtMir/Application/timesource.h>
 
 #include <QScopedPointer>
 #include <QSignalSpy>

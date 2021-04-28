@@ -27,7 +27,7 @@ add_executable(windowmanager_test ${MIR_WINDOW_MANAGER_TEST_SOURCES})
 target_link_libraries(
   windowmanager_test
 
-  unityapplicationplugin
+  qtmirapplicationplugin
 
   Qt5::Test
 

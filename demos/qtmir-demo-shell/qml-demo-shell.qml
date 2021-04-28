@@ -1,5 +1,5 @@
 import QtQuick 2.5
-import QtMir 0.1
+import QtMir.DemoShell 0.1
 
 Instantiator {
     id: root

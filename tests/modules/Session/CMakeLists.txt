@@ -25,7 +25,7 @@ add_dependencies(session_test qtmir-test-framework-static)
 target_link_libraries(
   session_test
 
-  unityapplicationplugin
+  qtmirapplicationplugin
 
   Qt5::Test
 

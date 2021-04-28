@@ -17,7 +17,7 @@
 #ifndef MOCK_SETTINGS_H
 #define MOCK_SETTINGS_H
 
-#include <Unity/Application/settings_interface.h>
+#include <QtMir/Application/settings_interface.h>
 #include <QVariant>
  
 #include <gmock/gmock.h>

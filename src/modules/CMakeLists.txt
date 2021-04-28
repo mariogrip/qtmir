@@ -11,4 +11,4 @@ macro(add_qml_plugin PLUGIN VERSION PATH)
     export_qmlplugin(${PLUGIN} ${VERSION} ${PATH} DESTINATION ${QML_MODULE_INSTALL_DIR} ${ARGN})
 endmacro()
 
-add_subdirectory(Unity)
+add_subdirectory(QtMir)
