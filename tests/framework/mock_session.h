@@ -17,7 +17,7 @@
 #ifndef MOCK_QTMIR_SESSION_H
 #define MOCK_QTMIR_SESSION_H
 
-#include <Unity/Application/session_interface.h>
+#include <QtMir/Application/session_interface.h>
 #include "promptsession.h"
 #include <gmock/gmock.h>
 

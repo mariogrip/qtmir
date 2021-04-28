@@ -25,9 +25,9 @@ struct MirEvent {}; // otherwise won't compile otherwise due to incomplete type
 #include <private/qquickitem_p.h>
 
 // the test subject
-#include <Unity/Application/mirsurfaceitem.h>
+#include <QtMir/Application/mirsurfaceitem.h>
 // and friends
-#include <Unity/Application/mirsurface.h>
+#include <QtMir/Application/mirsurface.h>
 
 // tests/framework
 #include <fake_mirsurface.h>

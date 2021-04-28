@@ -29,10 +29,10 @@ struct MirEvent {}; // otherwise won't compile otherwise due to incomplete type
 #include "windowmodelnotifier.h"
 
 // the test subject
-#include <Unity/Application/mirsurface.h>
+#include <QtMir/Application/mirsurface.h>
 
-#include <Unity/Application/timer.h>
-#include <Unity/Application/compositortextureprovider.h>
+#include <QtMir/Application/timer.h>
+#include <QtMir/Application/compositortextureprovider.h>
 
 // mirtest
 #include <mir/test/doubles/stub_session.h>

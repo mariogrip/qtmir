@@ -1,5 +1,5 @@
 import QtQuick 2.4
-import Unity.Application 0.1
+import QtMir.Application 0.1
 import Mir.Pointer 0.1
 
 FocusScope {

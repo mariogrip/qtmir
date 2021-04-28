@@ -14,9 +14,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <Unity/Application/session_interface.h>
-#include <Unity/Application/sessionmodel.h>
-#include <Unity/Application/mirsurfacelistmodel.h>
+#include <QtMir/Application/session_interface.h>
+#include <QtMir/Application/sessionmodel.h>
+#include <QtMir/Application/mirsurfacelistmodel.h>
 #include <QDebug>
 
 #ifndef QTMIR_FAKE_SESSION_H

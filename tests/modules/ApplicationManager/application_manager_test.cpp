@@ -19,8 +19,8 @@
 #include <condition_variable>
 #include <QSignalSpy>
 
-#include <Unity/Application/session.h>
-#include <Unity/Application/timer.h>
+#include <QtMir/Application/session.h>
+#include <QtMir/Application/timer.h>
 
 #include <fake_mirsurface.h>
 #include <mock_application_info.h>

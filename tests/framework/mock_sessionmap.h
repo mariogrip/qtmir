@@ -19,7 +19,7 @@
 
 #include <gmock/gmock.h>
 
-#include <Unity/Application/sessionmap_interface.h>
+#include <QtMir/Application/sessionmap_interface.h>
 
 struct MockSessionMap : public qtmir::SessionMapInterface
 {

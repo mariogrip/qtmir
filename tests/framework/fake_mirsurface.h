@@ -17,8 +17,8 @@
 #ifndef FAKE_MIRSURFACEINTERFACE_H
 #define FAKE_MIRSURFACEINTERFACE_H
 
-#include <Unity/Application/mirsurfaceinterface.h>
-#include <Unity/Application/mirsurfacelistmodel.h>
+#include <QtMir/Application/mirsurfaceinterface.h>
+#include <QtMir/Application/mirsurfacelistmodel.h>
 
 #include <QSharedPointer>
 #include <QSGTexture>

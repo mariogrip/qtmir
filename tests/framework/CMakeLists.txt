@@ -46,7 +46,7 @@ add_library(qtmir-test-framework-static STATIC
 target_link_libraries(
     qtmir-test-framework-static
 
-    unityapplicationplugin
+    qtmirapplicationplugin
 
     ${GTEST_BOTH_LIBRARIES}
     ${GMOCK_LIBRARIES}

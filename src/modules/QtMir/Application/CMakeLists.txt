@@ -33,7 +33,7 @@ add_definitions(-DBYTE_ORDER=__BYTE_ORDER)
 
 # Generate tracepoints.c and .h from tracepoints.tp
 add_lttng_gen_tp(NAME tracepoints)
-add_custom_target(UnityApplication_LTTNG
+add_custom_target(QtMirApplication_LTTNG
     DEPENDS tracepoints.h tracepoints.c
 )
 
@@ -77,17 +77,17 @@ set(QMLMIRPLUGIN_SRC
     settings_interface.h
 )
 
-add_library(unityapplicationplugin SHARED
+add_library(qtmirapplicationplugin SHARED
     ${QMLMIRPLUGIN_SRC}
 )
-add_dependencies(unityapplicationplugin UnityApplication_LTTNG)
+add_dependencies(qtmirapplicationplugin QtMirApplication_LTTNG)
 
 # Frig for files that still rely on mirserver-dev
 string(REPLACE ";" " -I" QTMIR_ADD_MIRSERVER "-I ${MIRSERVER_INCLUDE_DIRS}")
 set_source_files_properties(mirsurface.cpp         PROPERTIES COMPILE_FLAGS "${CMAKE_CXXFLAGS} ${QTMIR_ADD_MIRSERVER}")
 
 target_link_libraries(
-    unityapplicationplugin
+    qtmirapplicationplugin
 
     ${CMAKE_THREAD_LIBS_INIT}
 
@@ -109,5 +109,5 @@ target_link_libraries(
 
 
 # install
-add_qml_plugin(Unity.Application 0.1 Unity/Application TARGETS unityapplicationplugin)
+add_qml_plugin(QtMir.Application 0.1 QtMir/Application TARGETS qtmirapplicationplugin)
 install(FILES com.canonical.qtmir.gschema.xml DESTINATION ${CMAKE_INSTALL_DATADIR}/glib-2.0/schemas)

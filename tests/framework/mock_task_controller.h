@@ -17,7 +17,7 @@
 #ifndef MOCK_TASK_CONTROLLER_H
 #define MOCK_TASK_CONTROLLER_H
 
-#include <Unity/Application/taskcontroller.h>
+#include <QtMir/Application/taskcontroller.h>
 #include <QMap>
 
 #include <core/posix/fork.h>

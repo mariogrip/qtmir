@@ -17,7 +17,7 @@
 #ifndef MOCK_APPLICATION_INFO_H
 #define MOCK_APPLICATION_INFO_H
 
-#include <Unity/Application/applicationinfo.h>
+#include <QtMir/Application/applicationinfo.h>
 
 #include <gmock/gmock.h>
 

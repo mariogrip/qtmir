@@ -17,7 +17,7 @@
 #ifndef FAKE_APPLICATION_INFO_H
 #define FAKE_APPLICATION_INFO_H
 
-#include <Unity/Application/applicationinfo.h>
+#include <QtMir/Application/applicationinfo.h>
 
 namespace qtmir {
 

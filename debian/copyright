@@ -24,46 +24,46 @@ Files: demos/qml-demo-shell/screens.cpp
  src/common/windowcontrollerinterface.h
  src/common/windowmodelnotifier.h
  src/common/workspacecontrollerinterface.h
- src/modules/Unity/Application/application.cpp
- src/modules/Unity/Application/application.h
- src/modules/Unity/Application/application_manager.h
- src/modules/Unity/Application/applicationinfo.h
- src/modules/Unity/Application/cgmanager.cpp
- src/modules/Unity/Application/cgmanager.h
- src/modules/Unity/Application/compositortextureprovider.cpp
- src/modules/Unity/Application/compositortextureprovider.h
- src/modules/Unity/Application/dbusfocusinfo.cpp
- src/modules/Unity/Application/dbusfocusinfo.h
- src/modules/Unity/Application/gscopedpointer.h
- src/modules/Unity/Application/mirbuffersgtexture.cpp
- src/modules/Unity/Application/mirbuffersgtexture.h
- src/modules/Unity/Application/mirsurface.h
- src/modules/Unity/Application/mirsurfaceinterface.h
- src/modules/Unity/Application/mirsurfaceitem.h
- src/modules/Unity/Application/objectlistmodel.h
- src/modules/Unity/Application/plugin.cpp
- src/modules/Unity/Application/proc_info.cpp
- src/modules/Unity/Application/proc_info.h
- src/modules/Unity/Application/session.cpp
- src/modules/Unity/Application/session.h
- src/modules/Unity/Application/session_interface.h
- src/modules/Unity/Application/sessionmap_interface.h
- src/modules/Unity/Application/sessionmodel.h
- src/modules/Unity/Application/settings.cpp
- src/modules/Unity/Application/settings.h
- src/modules/Unity/Application/settings_interface.h
- src/modules/Unity/Application/sharedwakelock.cpp
- src/modules/Unity/Application/sharedwakelock.h
- src/modules/Unity/Application/surfacemanager.cpp
- src/modules/Unity/Application/surfacemanager.h
- src/modules/Unity/Application/taskcontroller.cpp
- src/modules/Unity/Application/taskcontroller.h
- src/modules/Unity/Application/upstart/applicationinfo.cpp
- src/modules/Unity/Application/upstart/applicationinfo.h
- src/modules/Unity/Application/upstart/taskcontroller.cpp
- src/modules/Unity/Application/upstart/taskcontroller.h
- src/modules/Unity/Application/windowmodel.cpp
- src/modules/Unity/Application/windowmodel.h
+ src/modules/QtMir/Application/application.cpp
+ src/modules/QtMir/Application/application.h
+ src/modules/QtMir/Application/application_manager.h
+ src/modules/QtMir/Application/applicationinfo.h
+ src/modules/QtMir/Application/cgmanager.cpp
+ src/modules/QtMir/Application/cgmanager.h
+ src/modules/QtMir/Application/compositortextureprovider.cpp
+ src/modules/QtMir/Application/compositortextureprovider.h
+ src/modules/QtMir/Application/dbusfocusinfo.cpp
+ src/modules/QtMir/Application/dbusfocusinfo.h
+ src/modules/QtMir/Application/gscopedpointer.h
+ src/modules/QtMir/Application/mirbuffersgtexture.cpp
+ src/modules/QtMir/Application/mirbuffersgtexture.h
+ src/modules/QtMir/Application/mirsurface.h
+ src/modules/QtMir/Application/mirsurfaceinterface.h
+ src/modules/QtMir/Application/mirsurfaceitem.h
+ src/modules/QtMir/Application/objectlistmodel.h
+ src/modules/QtMir/Application/plugin.cpp
+ src/modules/QtMir/Application/proc_info.cpp
+ src/modules/QtMir/Application/proc_info.h
+ src/modules/QtMir/Application/session.cpp
+ src/modules/QtMir/Application/session.h
+ src/modules/QtMir/Application/session_interface.h
+ src/modules/QtMir/Application/sessionmap_interface.h
+ src/modules/QtMir/Application/sessionmodel.h
+ src/modules/QtMir/Application/settings.cpp
+ src/modules/QtMir/Application/settings.h
+ src/modules/QtMir/Application/settings_interface.h
+ src/modules/QtMir/Application/sharedwakelock.cpp
+ src/modules/QtMir/Application/sharedwakelock.h
+ src/modules/QtMir/Application/surfacemanager.cpp
+ src/modules/QtMir/Application/surfacemanager.h
+ src/modules/QtMir/Application/taskcontroller.cpp
+ src/modules/QtMir/Application/taskcontroller.h
+ src/modules/QtMir/Application/upstart/applicationinfo.cpp
+ src/modules/QtMir/Application/upstart/applicationinfo.h
+ src/modules/QtMir/Application/upstart/taskcontroller.cpp
+ src/modules/QtMir/Application/upstart/taskcontroller.h
+ src/modules/QtMir/Application/windowmodel.cpp
+ src/modules/QtMir/Application/windowmodel.h
  src/platforms/mirserver/clipboard.cpp
  src/platforms/mirserver/clipboard.h
  src/platforms/mirserver/cursor.cpp
@@ -248,11 +248,11 @@ Files: CMakeLists.txt
  src/common/timestamp.cpp
  src/common/timestamp_impl.h
  src/modules/CMakeLists.txt
- src/modules/Unity/Application/CMakeLists.txt
- src/modules/Unity/Application/com.canonical.qtmir.gschema.xml
- src/modules/Unity/Application/qmldir
- src/modules/Unity/Application/tracepoints.tp
- src/modules/Unity/CMakeLists.txt
+ src/modules/QtMir/Application/CMakeLists.txt
+ src/modules/QtMir/Application/com.canonical.qtmir.gschema.xml
+ src/modules/QtMir/Application/qmldir
+ src/modules/QtMir/Application/tracepoints.tp
+ src/modules/QtMir/CMakeLists.txt
  src/platforms/CMakeLists.txt
  src/platforms/mirserver/CMakeLists.txt
  src/platforms/mirserver/miral/CMakeLists.txt
@@ -321,10 +321,10 @@ Files: demos/paths.h.in
  demos/qml-demo-shell/main.cpp
  demos/qml-demo-shell/pointerposition.cpp
  demos/qml-demo-shell/pointerposition.h
- src/modules/Unity/Application/mirsurfacelistmodel.cpp
- src/modules/Unity/Application/mirsurfacelistmodel.h
- src/modules/Unity/Application/timer.cpp
- src/modules/Unity/Application/timer.h
+ src/modules/QtMir/Application/mirsurfacelistmodel.cpp
+ src/modules/QtMir/Application/mirsurfacelistmodel.h
+ src/modules/QtMir/Application/timer.cpp
+ src/modules/QtMir/Application/timer.h
 Copyright: 2012-2015, Canonical, Ltd.
   2015, Canonical, Ltd.
   2016, Canonical, Ltd.
@@ -338,8 +338,8 @@ Copyright: 2015, Canonical Ltd.
   2016, Canonical Ltd.
 License: LGPL-3
 
-Files: src/modules/Unity/Application/application_manager.cpp
- src/modules/Unity/Application/mirsurfaceitem.cpp
+Files: src/modules/QtMir/Application/application_manager.cpp
+ src/modules/QtMir/Application/mirsurfaceitem.cpp
  src/platforms/mirserver/qteventfeeder.cpp
  src/platforms/mirserver/wrappedsessionauthorizer.cpp
 Copyright: 2013-2016, Canonical, Ltd.
@@ -378,12 +378,12 @@ Files: tests/include/check_gtest_version.h
 Copyright: 2018, Canonical Ltd.
 License: GPL-2
 
-Files: src/modules/Unity/Application/timesource.cpp
-       src/modules/Unity/Application/timesource.h
+Files: src/modules/QtMir/Application/timesource.cpp
+       src/modules/QtMir/Application/timesource.h
 Copyright: 2015, Canonical Ltd.
 License: LGPL-2.1
 
-Files: src/modules/Unity/Application/mirsurface.cpp
+Files: src/modules/QtMir/Application/mirsurface.cpp
 Copyright: 2015-2017, Canonical, Ltd.
   2020, UBports Foundation
 License: LGPL-3

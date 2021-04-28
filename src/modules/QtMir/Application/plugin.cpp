@@ -62,7 +62,7 @@ class UnityApplicationPlugin : public QQmlExtensionPlugin {
     virtual void registerTypes(const char* uri)
     {
         qCDebug(QTMIR_APPLICATIONS) << "UnityApplicationPlugin::registerTypes - this=" << this << "uri=" << uri;
-        Q_ASSERT(QLatin1String(uri) == QLatin1String("Unity.Application"));
+        Q_ASSERT(QLatin1String(uri) == QLatin1String("QtMir.Application"));
 
         qRegisterMetaType<qtmir::ApplicationManager*>("ApplicationManager*"); //need for queueing signals
         qRegisterMetaType<qtmir::Application*>("Application*");
