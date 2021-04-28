@@ -190,16 +190,16 @@ int main(int argc, const char *argv[])
     qmlEngine->addImportPath(::qmlPluginDirectory());
     QObject::connect(qmlEngine, &QQmlEngine::quit, application, &QGuiApplication::quit);
 
-    qmlRegisterSingletonType<PointerPosition>("Mir.Pointer", 0, 1, "PointerPosition",
+    qmlRegisterSingletonType<PointerPosition>("QtMir.DemoShell.Pointer", 0, 1, "PointerPosition",
         [](QQmlEngine*, QJSEngine*) -> QObject* { return PointerPosition::instance(); });
 
-    qmlRegisterType<ScreenWindow>("QtMir", 0, 1, "ScreenWindow");
-    qmlRegisterSingletonType<Screens>("QtMir", 0, 1, "Screens",
+    qmlRegisterType<ScreenWindow>("QtMir.DemoShell", 0, 1, "ScreenWindow");
+    qmlRegisterSingletonType<Screens>("QtMir.DemoShell", 0, 1, "Screens",
         [](QQmlEngine*, QJSEngine*) -> QObject* {
             static Screens* screens = new Screens();
             return screens;
     });
-    qmlRegisterUncreatableType<qtmir::ScreenMode>("QtMir", 0, 1, "ScreenMode", "ScreenMode is not creatable.");
+    qmlRegisterUncreatableType<qtmir::ScreenMode>("QtMir.DemoShell", 0, 1, "ScreenMode", "ScreenMode is not creatable.");
 
     qmlEngine->load(::qmlDirectory() + "qtmir-demo-shell/qml-demo-shell.qml");
 
