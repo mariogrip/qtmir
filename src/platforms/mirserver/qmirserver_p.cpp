@@ -20,6 +20,7 @@
 // local
 #include "logging.h"
 #include "wrappedwindowmanagementpolicy.h"
+#include "inputdeviceobserver.h"
 #include "setqtcompositor.h"
 #include "qteventfeeder.h"
 #include "qtmir/sessionauthorizer.h"
@@ -181,8 +182,9 @@ void QMirServerPrivate::run(const std::function<void()> &startCallback)
 
     runner.add_start_callback([&]
     {
-        screensController = m_mirServerHooks.createScreensController(screensModel);
-        m_mirServerHooks.createInputDeviceObserver();
+        screensController = QSharedPointer<ScreensController>(new ScreensController(screensModel, m_mirServerHooks.theMirDisplay(), m_mirServerHooks.theDisplayConfigurationController()));
+        std::shared_ptr<miroil::InputDeviceObserver> ptr = std::make_shared<qtmir::MirInputDeviceObserver>();
+        m_mirServerHooks.createInputDeviceObserver(ptr);
     });
 
     runner.add_start_callback(startCallback);
