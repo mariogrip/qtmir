@@ -42,8 +42,8 @@ namespace mg = mir::graphics;
 #define DEBUG_MSG qCDebug(QTMIR_SCREENS).nospace() << "ScreensModel[" << this <<"]::" << __func__
 
 ScreensModel::ScreensModel(QObject *parent)
-    : MirDisplayConfigurationObserver(parent)
-    , m_compositing(false)
+    : //MirDisplayConfigurationObserver(parent)
+    m_compositing(false)
     , m_orientationSensor(std::make_shared<OrientationSensor>(this))
 {
     DEBUG_MSG << "()";
@@ -68,8 +68,8 @@ void ScreensModel::init(
     connect(qtCompositor, &QtCompositor::stopping,
             this, &ScreensModel::onCompositorStopping, Qt::BlockingQueuedConnection);
 
-    connect(this, &MirDisplayConfigurationObserver::configurationApplied,
-            this, &ScreensModel::update, Qt::BlockingQueuedConnection);
+    //connect(this, &MirDisplayConfigurationObserver::configurationApplied,
+    //        this, &ScreensModel::update, Qt::BlockingQueuedConnection);
 }
 
 // terminate before shutting down the Mir server, or else liable to deadlock with the blocking connection above
