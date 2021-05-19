@@ -24,8 +24,8 @@
 #include "qteventfeeder.h"
 #include "qtmir/sessionauthorizer.h"
 #include "miropenglcontext.h"
-#include "screenscontroller.h"
 #include "mirglconfig.h"
+#include "screenscontroller.h"
 #include "qtcompositor.h"
 
 #include <miroil/prompt_session_manager.h>
@@ -119,7 +119,7 @@ QPlatformOpenGLContext *QMirServerPrivate::createPlatformOpenGLContext(QOpenGLCo
 {
     QSurfaceFormat            format     = context->format();
     mir::graphics::Display  * mirDisplay = m_mirServerHooks.theMirDisplay().get();
-    mir::graphics::GLConfig * gl_config  = m_openGLContext.the_open_gl_config();
+    mir::graphics::GLConfig * gl_config  = m_openGLContext.the_open_gl_config().get();
     
     if (!gl_config)
         throw std::logic_error("No gl config available. Server not running?");
