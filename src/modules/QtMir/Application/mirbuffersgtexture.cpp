@@ -29,7 +29,7 @@ namespace mg = mir::geometry;
 class MirGlBuffer
 {
 public:
-    MirGlBuffer(const std::shared_ptr<miral::GLBuffer>& buffer);
+    MirGlBuffer(const std::shared_ptr<miroil::GLBuffer>& buffer);
     virtual ~MirGlBuffer();
 
     static std::shared_ptr<MirGlBuffer> from_mir_buffer(const std::shared_ptr<mir::graphics::Buffer>& buffer);
@@ -48,7 +48,7 @@ public:
     virtual void bindTexture() {};
 
 protected:
-    std::shared_ptr<miral::GLBuffer> m_mirBuffer;
+    std::shared_ptr<miroil::GLBuffer> m_mirBuffer;
     GLuint m_textureId;
 
 private:
@@ -61,7 +61,7 @@ private:
 class MirGlBufferTexture : public MirGlBuffer
 {
 public:
-    MirGlBufferTexture(const std::shared_ptr<miral::GLBuffer>& buffer) : MirGlBuffer(buffer) {}
+    MirGlBufferTexture(const std::shared_ptr<miroil::GLBuffer>& buffer) : MirGlBuffer(buffer) {}
 
     void updateTextureId() override
     {
@@ -78,7 +78,7 @@ public:
 class MirGlBufferTexturesource : public MirGlBuffer
 {
 public:
-    MirGlBufferTexturesource(const std::shared_ptr<miral::GLBuffer>& buffer) : MirGlBuffer(buffer) {}
+    MirGlBufferTexturesource(const std::shared_ptr<miroil::GLBuffer>& buffer) : MirGlBuffer(buffer) {}
 
     void updateTextureId() override
     {
@@ -95,7 +95,7 @@ public:
     }
 };
 
-MirGlBuffer::MirGlBuffer(const std::shared_ptr<miral::GLBuffer>& buffer) :
+MirGlBuffer::MirGlBuffer(const std::shared_ptr<miroil::GLBuffer>& buffer) :
     m_mirBuffer(buffer)
     , m_textureId(0)
     , m_needsUpdate(false)
@@ -113,8 +113,8 @@ MirGlBuffer::~MirGlBuffer()
 }
 
 std::shared_ptr<MirGlBuffer> MirGlBuffer::from_mir_buffer(const std::shared_ptr<mir::graphics::Buffer>& buffer) {
-    auto glBuffer = miral::GLBuffer::from_mir_buffer(buffer);
-    if (glBuffer->type() == miral::GLBuffer::Type::GLTextureSource)
+    auto glBuffer = miroil::GLBuffer::from_mir_buffer(buffer);
+    if (glBuffer->type() == miroil::GLBuffer::Type::GLTextureSource)
         return std::make_shared<MirGlBufferTexturesource>(glBuffer);
     else
         return std::make_shared<MirGlBufferTexture>(glBuffer);
