@@ -6,8 +6,6 @@ include(UseLttngGenTp)
 
 set(QTMIRSERVER_ABI 1)
 
-add_subdirectory(miral)
-
 # Hacks for the QPA privates monster.
 pkg_check_modules(FONTCONFIG fontconfig REQUIRED)
 
@@ -168,7 +166,6 @@ add_library(qtmirserver SHARED
     ${QMIRSERVER_PLUGIN_SRC}
     $<TARGET_OBJECTS:qtmirserver-nomirserver>
     $<TARGET_OBJECTS:qtmirserver-mirserver>
-    $<TARGET_OBJECTS:miral-prototypes>
 )
 
 target_link_libraries(qtmirserver
