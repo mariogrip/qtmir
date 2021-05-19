@@ -38,6 +38,7 @@
 // miral
 #include <miral/add_init_callback.h>
 #include <miral/set_terminator.h>
+#include <miral/x11_support.h>
 
 // Qt
 #include <QCoreApplication>
@@ -242,6 +243,7 @@ void QMirServerPrivate::run(const std::function<void()> &startCallback)
             setTerminator,
             miroil::PersistDisplayConfig{displayStorageBuilder(),
                                         m_displayConfigurationPolicy},
+            miral::X11Support{},
         });
 }
 
