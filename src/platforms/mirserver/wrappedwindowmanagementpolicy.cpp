@@ -512,7 +512,7 @@ void WrappedWindowManagementPolicy::deliver_keyboard_event(const MirKeyboardEven
         });
     }
 
-    miroil::dispatchInputEvent(window, miral::toolkit::mir_keyboard_event_input_event(event));
+    miroil::dispatch_input_event(window, miral::toolkit::mir_keyboard_event_input_event(event));
 }
 
 void WrappedWindowManagementPolicy::deliver_touch_event(const MirTouchEvent *event, const miral::Window &window)
@@ -523,7 +523,7 @@ void WrappedWindowManagementPolicy::deliver_touch_event(const MirTouchEvent *eve
         }
     });
 
-    miroil::dispatchInputEvent(window, miral::toolkit::mir_touch_event_input_event(event));
+    miroil::dispatch_input_event(window, miral::toolkit::mir_touch_event_input_event(event));
 }
 
 void WrappedWindowManagementPolicy::deliver_pointer_event(const MirPointerEvent *event, const miral::Window &window)
@@ -537,7 +537,7 @@ void WrappedWindowManagementPolicy::deliver_pointer_event(const MirPointerEvent 
         });
     }
 
-    miroil::dispatchInputEvent(window, miral::toolkit::mir_pointer_event_input_event(event));
+    miroil::dispatch_input_event(window, miral::toolkit::mir_pointer_event_input_event(event));
 }
 
 void WrappedWindowManagementPolicy::advise_adding_to_workspace(const std::shared_ptr<miral::Workspace> &workspace,
