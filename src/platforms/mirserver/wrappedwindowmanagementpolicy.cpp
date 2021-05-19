@@ -16,7 +16,9 @@
 
 #include "wrappedwindowmanagementpolicy.h"
 
-#include "eventdispatch.h"
+#include <miroil/eventdispatch.h>
+#include <miral/toolkit_event.h>
+
 #include "initialsurfacesizes.h"
 #include "screensmodel.h"
 #include "surfaceobserver.h"
@@ -502,7 +504,7 @@ void WrappedWindowManagementPolicy::advise_resize(const miral::WindowInfo &info,
 
 void WrappedWindowManagementPolicy::deliver_keyboard_event(const MirKeyboardEvent *event, const miral::Window &window)
 {
-    if (mir_keyboard_event_action(event) == mir_keyboard_action_down) {
+    if (miral::toolkit::mir_keyboard_event_action(event) == mir_keyboard_action_down) {
         tools.invoke_under_lock([&]() {
             if (tools.active_window() != window) {
                 tools.select_active_window(window);
@@ -510,7 +512,7 @@ void WrappedWindowManagementPolicy::deliver_keyboard_event(const MirKeyboardEven
         });
     }
 
-    qtmir::dispatchInputEvent(window, mir_keyboard_event_input_event(event));
+    miroil::dispatchInputEvent(window, miral::toolkit::mir_keyboard_event_input_event(event));
 }
 
 void WrappedWindowManagementPolicy::deliver_touch_event(const MirTouchEvent *event, const miral::Window &window)
@@ -521,13 +523,13 @@ void WrappedWindowManagementPolicy::deliver_touch_event(const MirTouchEvent *eve
         }
     });
 
-    qtmir::dispatchInputEvent(window, mir_touch_event_input_event(event));
+    miroil::dispatchInputEvent(window, miral::toolkit::mir_touch_event_input_event(event));
 }
 
 void WrappedWindowManagementPolicy::deliver_pointer_event(const MirPointerEvent *event, const miral::Window &window)
 {
     // Prevent mouse hover events causing window focus to change
-    if (mir_pointer_event_action(event) == mir_pointer_action_button_down) {
+    if (miral::toolkit::mir_pointer_event_action(event) == mir_pointer_action_button_down) {
         tools.invoke_under_lock([&]() {
             if (tools.active_window() != window) {
                 tools.select_active_window(window);
@@ -535,7 +537,7 @@ void WrappedWindowManagementPolicy::deliver_pointer_event(const MirPointerEvent 
         });
     }
 
-    qtmir::dispatchInputEvent(window, mir_pointer_event_input_event(event));
+    miroil::dispatchInputEvent(window, miral::toolkit::mir_pointer_event_input_event(event));
 }
 
 void WrappedWindowManagementPolicy::advise_adding_to_workspace(const std::shared_ptr<miral::Workspace> &workspace,
