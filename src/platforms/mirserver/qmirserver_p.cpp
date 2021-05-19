@@ -15,7 +15,6 @@
  */
 
 #include "qmirserver_p.h"
-#include "qtmir/miral/display_configuration_storage.h"
 
 // local
 #include "logging.h"
@@ -28,11 +27,13 @@
 #include "screenscontroller.h"
 #include "qtcompositor.h"
 #include "namedcursor.h"
+#include "promptsessionlistener.h"
 
 #include <miroil/prompt_session_manager.h>
 #include <miroil/persist_display_config.h>
 #include <miroil/set_compositor.h>
 #include <miroil/display_listener_wrapper.h>
+#include <miroil/display_configuration_storage.h>
 
 // miral
 #include <miral/add_init_callback.h>
@@ -59,19 +60,19 @@ public:
     {}
 };
 
-struct DefaultDisplayConfigurationStorage : miral::DisplayConfigurationStorage
+struct DefaultDisplayConfigurationStorage : miroil::DisplayConfigurationStorage
 {
-    void save(const miral::DisplayId&, const miral::DisplayConfigurationOptions&) override {}
+    void save(const miroil::DisplayId&, const miroil::DisplayConfigurationOptions&) override {}
 
-    bool load(const miral::DisplayId&, miral::DisplayConfigurationOptions&) const override { return false; }
+    bool load(const miroil::DisplayId&, miroil::DisplayConfigurationOptions&) const override { return false; }
 };
 
-std::shared_ptr<miral::DisplayConfigurationPolicy> buildDisplayConfigurationPolicy()
+std::shared_ptr<miroil::DisplayConfigurationPolicy> buildDisplayConfigurationPolicy()
 {
     return std::make_shared<qtmir::DisplayConfigurationPolicy>();
 }
 
-std::shared_ptr<miral::DisplayConfigurationStorage> buildDisplayConfigurationStorage()
+std::shared_ptr<miroil::DisplayConfigurationStorage> buildDisplayConfigurationStorage()
 {
     return std::make_shared<DefaultDisplayConfigurationStorage>();
 }
@@ -240,7 +241,7 @@ void QMirServerPrivate::run(const std::function<void()> &startCallback)
             ),
             setTerminator,
             miroil::PersistDisplayConfig{displayStorageBuilder(),
-                                        m_displayConfigurationPolicy}
+                                        m_displayConfigurationPolicy},
         });
 }
 

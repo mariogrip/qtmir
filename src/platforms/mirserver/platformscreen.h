@@ -29,7 +29,7 @@
 
 // local
 #include "qtmir/types.h"
-#include "qtmir/miral/display_configuration_storage.h"
+#include "miroil/display_configuration_storage.h"
 #include "cursor.h"
 #include "screenplatformwindow.h"
 
@@ -67,7 +67,7 @@ public:
     float scale() const { return m_scale; }
     qtmir::FormFactor formFactor() const { return m_formFactor; }
     MirPowerMode powerMode() const { return m_powerMode; }
-    miral::DisplayId displayId() const { return m_displayId; }
+    miroil::DisplayId displayId() const { return m_displayId; }
     qtmir::OutputTypes outputType() const { return m_type; }
     uint32_t currentModeIndex() const { return m_currentModeIndex; }
     bool isActive() const { return m_isActive; }
@@ -137,7 +137,7 @@ private:
 
     mir::renderer::gl::RenderTarget *m_renderTarget;
     mir::graphics::DisplaySyncGroup *m_displayGroup;
-    miral::DisplayId m_displayId;
+    miroil::DisplayId m_displayId;
     qtmir::OutputTypes m_type;
     MirPowerMode m_powerMode;
 

@@ -42,6 +42,7 @@ include_directories(
 include_directories(
     SYSTEM
     ${MIRAL_INCLUDE_DIRS}
+    ${MIROIL_INCLUDE_DIRS}
     ${MIRRENDERERGLDEV_INCLUDE_DIRS}
     ${MIRSERVER_INCLUDE_DIRS}
     ${MIRPLATFORM_INCLUDE_DIRS}
